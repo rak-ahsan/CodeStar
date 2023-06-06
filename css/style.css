@@ -1,0 +1,17 @@
+
+
+.navli {
+    background-color: #123456;
+    margin-top: 16px!important;
+}
+.navli a:hover{
+    background-color: rgb(55, 53, 77);
+}
+
+.in{
+    border: 1px solid rgb(39, 36, 85);
+}
+
+.form{
+    margin: 30px 25px;
+}
