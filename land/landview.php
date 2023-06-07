@@ -1,9 +1,9 @@
-<?php include('../config/head.php')?>
+<?php include('../config/nav.php')?>
 <?php include('../config/sidebar.php')?>
-<div class="col-6">
+<div class="col-10 mt-3">
 <?php 
     include('../config/db.php');
-    $sql = "SELECT * FROM land NATURAL JOIN land_agent "; 
+    $sql = "SELECT * FROM land natural JOIN land_agent Natural JOIN land_status"; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -13,6 +13,8 @@
                 <th class='col'>Area</th>
                 <th class='col'>Cost</th>
                 <th class='col'>Agent</th>
+                <th class='col'>Status</th>
+                <th class='col'>Photo</th>
                 <th class='col' colspan=2>Action</th>
             </tr>"; 
         while ($row = $result->fetch_assoc()) {
@@ -22,6 +24,15 @@
                 <td>$row[land_area]</td>
                 <td>$row[land_cost]</td>
                 <td>$row[land_agent_name]</td>
+                <td>$row[is_name]</td>
+                <td>";
+                     if($row['land_img']!=''){ 
+                    echo "<img height='50' src='../upload/$row[land_img]'/>";
+                   }else{ 
+                     echo '<img height="50" src="../img/avatar.png" alt="Image"/>';
+                   }
+
+                 echo "</td>
                 <td> 
                     <a class='btn btn-success' href='updatedata.php?id=$row[land_id]' > Update </a>
                 </td>

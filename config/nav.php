@@ -1,5 +1,5 @@
-<?php include('db.php')?>
-<!doctype html>
+<?php require('db.php');ob_start();?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-text navbar-dark p-3 gx-0" style="background-color: #123456;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">company</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

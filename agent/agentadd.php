@@ -1,4 +1,4 @@
-<?php include('../config/head.php')?>
+<?php include('../config/nav.php')?>
 <?php include('../config/sidebar.php')?>
 
 <div class="col-md-10 ">
