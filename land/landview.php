@@ -1,6 +1,6 @@
 <?php include('../config/nav.php')?>
 <?php include('../config/sidebar.php')?>
-<div class="col-10 mt-3">
+<div class="col-md-10 mt-3">
 <?php 
     include('../config/db.php');
     $sql = "SELECT * FROM land natural JOIN land_agent Natural JOIN land_status"; 
@@ -36,7 +36,7 @@
                 <td> 
                     <a class='btn btn-success' href='updatedata.php?id=$row[land_id]' > Update </a>
                 </td>
-                <td><a class='btn btn-danger' href=#>Delete</a></td>
+                <td><a class='btn btn-danger' href='Delete.php?id=$row[land_id]' </a>Delete</td>
             <tr>
             
             

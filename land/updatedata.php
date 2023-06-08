@@ -8,7 +8,7 @@
     $row = $result->fetch_assoc();
 ?>
 <div class="col-md-10 ">
-  <form method="post" class="form">
+  <form method="post" class="form" enctype="multipart/form-data">
     <div class="col-md-4">
       <label for="land" class="form-label mt-3">Land Name</label>
       <input type="text" class="form-control mb-1 in" id="land" name="lname" value="<?= $row['land_name']?>">
@@ -78,7 +78,7 @@ if(isset($_POST['sub'])){
   if($image['name']!=''){
     $imageName='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);
 
-    $updateImg="UPDATE land SET land_pic='$imageName' WHERE land_id='$id'";
+    $updateImg="UPDATE land SET land_img='$imageName' WHERE land_id='$id'";
     if($conn->query($updateImg) === TRUE){
       move_uploaded_file($image['tmp_name'],'../upload/'.$imageName);
       header('Location: landview.php');
