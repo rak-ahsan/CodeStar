@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="href=../css/style.css">
+  <link rel="stylesheet" href="../dist/css/style.css">
 </head>
 <div class="container-fluid d-flex justify-content-start gx-0">
     <div class="col-md-2 vh-100 text-white" style="background-color: #123456;">

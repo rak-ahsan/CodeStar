@@ -1,5 +1,7 @@
-<?php include('../config/nav.php')?>
-<?php include('../config/sidebar.php')?>
+<?php include('../../includes/conf.php');
+  get_header();
+  get_side();
+?>
 
 <div class="col-md-10 ">
   <form method="post" class="form" enctype="multipart/form-data">
@@ -38,7 +40,7 @@ if(!empty($aname)&& !empty($aarea)&& !empty($acontact)){
   $sql ="INSERT INTO land_agent (land_agent_name,land_agent_location,land_agent_contact,agent_img) 
   VALUES('$aname','$aarea','$acontact','$imageName')";
   if ($conn->query($sql) === TRUE) {
-    move_uploaded_file($image['tmp_name'],'../upload/agent/'.$imageName);
+    move_uploaded_file($image['tmp_name'],'../../dist/images/agent/'.$imageName);
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

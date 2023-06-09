@@ -1,6 +1,7 @@
-<?php include('../config/nav.php')?>
-<?php include('../config/sidebar.php')?>
-
+<?php include('../../includes/conf.php');
+  get_header();
+  get_side();
+?>
 <?php
     $id=$_GET['id'];
     $sql = "SELECT * FROM land where land_id = $id"; 

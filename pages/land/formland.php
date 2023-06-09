@@ -1,5 +1,7 @@
-<?php include('../config/nav.php')?>
-<?php include('../config/sidebar.php')?>
+<?php include('../../includes/conf.php');
+  get_header();
+  get_side();
+?>
 
 <div class="col-md-10 ">
   <form method="post" class="form" enctype="multipart/form-data">

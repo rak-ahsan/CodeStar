@@ -1,5 +1,8 @@
-<?php include('../config/nav.php')?>
-<?php include('../config/sidebar.php')?>
+<?php include('../../includes/conf.php');
+  get_header();
+  get_side();
+?>
+
 <?php
     $id=$_GET['id'];
     $sql = "SELECT * FROM land_agent where land_agent_id = $id"; 
@@ -50,7 +53,7 @@ if ($conn->query($sql) === TRUE) {
     
         $updateImg="UPDATE land_agent SET agent_img='$imageName' WHERE land_agent_id='$id'";
         if($conn->query($updateImg) === TRUE){
-          move_uploaded_file($image['tmp_name'],'../upload/agent/'.$imageName);
+          move_uploaded_file($image['tmp_name'],'../../dist/images/agent/'.$imageName);
           header('Location: agent.php');
         }else{
           echo "User image update failed.";

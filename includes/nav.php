@@ -1,4 +1,4 @@
-<?php require('db.php');ob_start();?>
+<?php ob_start();?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,7 +7,7 @@
     </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../../dist/css/style.css">
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-text navbar-dark p-3 gx-0" style="background-color: #123456;">
@@ -23,7 +23,7 @@
             Land
           </a>
           <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="../land/formland.php">Add New Land</a></li>
+            <li><a class="dropdown-item" href="../pages/land/formland.php">Add New Land</a></li>
             <li><a class="dropdown-item" href="../land/landview.php">View All Land</a></li>
           </ul>
         </li>
@@ -117,12 +117,13 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-regular fa-user fa-lg"></i></a>
-          <ul class="dropdown-menu navli pli text-white">
-            <li><a class="dropdown-item" href="#">Edit</a></li>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-regular fa-user fa-lg"></i>
+          </a>
+          <ul class="dropdown-menu navli">
+            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
             <li><a class="dropdown-item" href="#">Change Password</a></li>
-            <li><a class="dropdown-item" href="#">Log out</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
           </ul>
         </li>
         </li>

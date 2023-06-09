@@ -1,8 +1,10 @@
-<?php include('../config/nav.php')?>
-<?php include('../config/sidebar.php')?>
+<?php include('../../includes/conf.php');
+  get_header();
+  get_side();
+?>
+
 <div class="col-md-10 mt-3">
 <?php 
-    include('../config/db.php');
     $sql = "SELECT * FROM land natural JOIN land_agent Natural JOIN land_status"; 
     $result = $conn->query($sql);
 
