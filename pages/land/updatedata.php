@@ -81,8 +81,8 @@ if(isset($_POST['sub'])){
 
     $updateImg="UPDATE land SET land_img='$imageName' WHERE land_id='$id'";
     if($conn->query($updateImg) === TRUE){
-      move_uploaded_file($image['tmp_name'],'../upload/'.$imageName);
-      header('Location: landview.php');
+      move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
+      header('Location:landview.php');
     }else{
       echo "User image update failed.";
     }

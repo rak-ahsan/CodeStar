@@ -68,8 +68,7 @@ if(isset($_POST['sub'])){
 if(!empty($lname)&& !empty($larea)&& !empty($lcost)&& !empty($status) && !empty($agent)){
   $sql ="INSERT INTO land (land_name,land_area,land_cost,ls_id,land_agent_id,land_img ) VALUES('$lname','$larea','$lcost','$status','$agent','$imageName')";
   if ($conn->query($sql) === TRUE) {
-    move_uploaded_file($image['tmp_name'],'../upload/'.$imageName);
-    echo "New record created successfully";
+    move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

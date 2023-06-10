@@ -1,4 +1,4 @@
-<?php include('../includes/conf.php');
+<?php include('../../includes/conf.php');
   get_header();
   get_side();
 ?>

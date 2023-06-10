@@ -29,9 +29,9 @@
                 <td>$row[is_name]</td>
                 <td>";
                      if($row['land_img']!=''){ 
-                    echo "<img height='50' src='../upload/$row[land_img]'/>";
+                    echo "<img height='50' src='../../dist/images/land/$row[land_img]'/>";
                    }else{ 
-                     echo '<img height="50" src="../img/avatar.png" alt="Image"/>';
+                     echo '<img height="50" src="../../dist/images/pic/avatar.png" alt="Image"/>';
                    }
 
                  echo "</td>

@@ -23,7 +23,7 @@
             Land
           </a>
           <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="../pages/land/formland.php">Add New Land</a></li>
+            <li><a class="dropdown-item" href="../land/formland.php">Add New Land</a></li>
             <li><a class="dropdown-item" href="../land/landview.php">View All Land</a></li>
           </ul>
         </li>
@@ -120,7 +120,7 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-regular fa-user fa-lg"></i>
           </a>
-          <ul class="dropdown-menu navli">
+          <ul class="dropdown-menu navli pli">
             <li><a class="dropdown-item" href="#">Edit Profile</a></li>
             <li><a class="dropdown-item" href="#">Change Password</a></li>
             <li><a class="dropdown-item" href="#">Logout</a></li>
