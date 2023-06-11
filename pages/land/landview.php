@@ -3,24 +3,28 @@
   get_side();
 ?>
 
-<div class="col-md-10 mt-3">
+<div class="col-md-10 table-responsive">
+
 <?php 
     $sql = "SELECT * FROM land natural JOIN land_agent Natural JOIN land_status"; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<table class= 'table table-light border-primary align-middle text-center table-bordered'; >";
+        echo "<table class='table table-light align-middle text-center table-bordered'>
+        <thead>";
         echo "<tr> 
-                <th class='col'>Name</th> 
-                <th class='col'>Area</th>
-                <th class='col'>Cost</th>
-                <th class='col'>Agent</th>
-                <th class='col'>Status</th>
-                <th class='col'>Photo</th>
-                <th class='col' colspan=2>Action</th>
-            </tr>"; 
+                <th>Name</th> 
+                <th>Area</th>
+                <th>Cost</th>
+                <th>Agent</th>
+                <th>Status</th>
+                <th>Photo</th>
+                <th colspan='2'>Action</th>
+            </tr>
+            </thead>
+            "; 
         while ($row = $result->fetch_assoc()) {
-            echo "
+            echo "<tbody>
             <tr>
                 <td>$row[land_name]</td>
                 <td>$row[land_area]</td>
@@ -29,30 +33,25 @@
                 <td>$row[is_name]</td>
                 <td>";
                      if($row['land_img']!=''){ 
-                    echo "<img height='50' src='../../dist/images/land/$row[land_img]'/>";
+                    echo "<img height='50' src='../../dist/images/land/$row[land_img]'>";
                    }else{ 
-                     echo '<img height="50" src="../../dist/images/pic/avatar.png" alt="Image"/>';
+                     echo '<img height="50" src="../../dist/images/pic/avatar.png" alt="Image">';
                    }
 
-                 echo "</td>
-                <td> 
-                    <a class='btn btn-success' href='updatedata.php?id=$row[land_id]' > Update </a>
-                </td>
-                <td><a class='btn btn-danger' href='Delete.php?id=$row[land_id]' </a>Delete</td>
+                 echo 
+                "</td>
+                <td><a class='btn' href='updatedata.php?id=$row[land_id]' > <i class='fa-regular fa-pen-to-square fa-xl'></i> </a></td>
+                <td><a class='btn' href='Delete.php?id=$row[land_id]'><i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a></td>
             <tr>
             
             
-            
+            </tbody>
             ";
-        };
+        }
     
         echo "</table>";
     } else {
         echo "No data found.";
     }
-
-
-
-
 ?>
 </div>

@@ -3,21 +3,24 @@
   get_side();
 ?>
 
-<div class="col-md-10 ">
-  <form method="post" class="form" enctype="multipart/form-data">
-    <div class="col-md-4">
+<div class="col-md-10  container d-flex justify-content-center bg-light ">
+ <div class="col-md-3"></div>
+ <div class="col-md-4">
+ <form method="post" class="col-md-12 bg-light mt-3 pdiv" enctype="multipart/form-data">
+  <div class=" p-3">
+    <div>
       <label for="land" class="form-label mt-3">Land Name</label>
       <input type="text" class="form-control mb-1 in" id="land" name="lname">
     </div>
-    <div class="col-md-4">
+    <div>
       <label for="larea" class="form-label">Land Area</label>
       <input type="text" class="form-control mb-1 in" id="larea" name="larea">
     </div>
-    <div class="col-md-4">
+    <div>
       <label for="larea" class="form-label">Land Cost</label>
       <input type="text" class="form-control mb-1 in" id="larea" name="lcost">
     </div>
-    <div class="col-md-4">
+    <div>
     <label for="larea" class="form-label">Status</label>
       <select class="form-select form-select-sm in mb-1" name="status" aria-label=".form-select-sm example">
       <option selected>Open this select menu</option>
@@ -30,7 +33,7 @@
           <?php }?>
       </select>
     </div>
-    <div class="col-md-4">
+    <div>
     <label for="larea" class="form-label">Agent</label>
       <select class="form-select form-select-sm in mb-1" name="agent" aria-label=".form-select-sm example">
       <option selected>Select Agent</option>
@@ -45,12 +48,15 @@
           <?php }?>
       </select>
     </div>
-    <div class="mb-3 col-md-4">
+    <div class="mb-3">
       <label for="formFile" class="form-label">Upload Land Photos</label>
       <input class="form-control" type="file" id="formFile" name='pic'>
   </div>
     <button type="submit" class="btn btn-primary" name="sub">Submit</button>
   </form>
+ </div>
+ </div>
+ <div class="col-md-3"></div>
 </div>
 
 <?php

@@ -30,8 +30,8 @@
                    }
 
                  echo "</td>
-                <td><a class='btn btn-success' href=agentupdate.php?id=$row[land_agent_id]>Update</a></td>
-                <td><a class='btn btn-danger' href=agentdelete.php?id=$row[land_agent_id]>Delete</a></td>
+                <td><a class='btn ' href=agentupdate.php?id=$row[land_agent_id]><i class='fa-regular fa-pen-to-square fa-xl'></i></a></td>
+                <td><a class='btn ' href=agentdelete.php?id=$row[land_agent_id]><i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a></td>
             <tr>
             
             
