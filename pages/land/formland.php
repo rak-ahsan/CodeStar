@@ -3,8 +3,7 @@
   get_side();
 ?>
 
-<div class="col-md-10  container d-flex justify-content-center bg-light ">
- <div class="col-md-3"></div>
+<div class="col-md-10  container d-flex justify-content-center bg">
  <div class="col-md-4">
  <form method="post" class="col-md-12 bg-light mt-3 pdiv" enctype="multipart/form-data">
   <div class=" p-3">
@@ -52,11 +51,10 @@
       <label for="formFile" class="form-label">Upload Land Photos</label>
       <input class="form-control" type="file" id="formFile" name='pic'>
   </div>
-    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
+    <button type="submit" class="btn btn-secondary " name="sub">Submit</button>
   </form>
  </div>
  </div>
- <div class="col-md-3"></div>
 </div>
 
 <?php

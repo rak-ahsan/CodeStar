@@ -8,22 +8,24 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 ?>
-<div class="col-md-10 ">
-  <form method="post" class="form" enctype="multipart/form-data">
-    <div class="col-md-4">
+<div class="col-md-10 container d-flex justify-content-center bg">
+  <div class="col-md-4">
+  <form method="post" class="col-md-12 bg-light mt-3 pdiv" enctype="multipart/form-data">
+  <div class="p-3"> 
+  <div>
       <label for="land" class="form-label mt-3">Land Name</label>
       <input type="text" class="form-control mb-1 in" id="land" name="lname" value="<?= $row['land_name']?>">
       <input type="hidden" class="form-control mb-1 in" id="land" name="land_id" value="<?= $row['land_id']?>">
     </div>
-    <div class="col-md-4">
+    <div >
       <label for="larea" class="form-label">Land Area</label>
       <input type="text" class="form-control mb-1 in" id="larea" name="larea" value="<?= $row['land_area']?>">
     </div>
-    <div class="col-md-4">
+    <div >
       <label for="larea" class="form-label">Land Cost</label>
       <input type="text" class="form-control mb-1 in" id="larea" name="lcost" value="<?= $row['land_cost']?>">
     </div>
-    <div class="col-md-4">
+    <div >
     <label for="larea" class="form-label">Status</label>
       <select class="form-select form-select-sm in mb-1" name="status" aria-label=".form-select-sm example">
       <option >Open this select menu</option>
@@ -36,7 +38,7 @@
           <?php }?>
       </select>
     </div>
-    <div class="col-md-4">
+    <div >
     <label for="larea" class="form-label">Agent</label>
       <select class="form-select form-select-sm in mb-1" name="agent" aria-label=".form-select-sm example">
       <option>Select Agent</option>
@@ -51,13 +53,15 @@
           <?php }?>
       </select>
     </div>
-    <div class="mb-3 col-md-4">
+    <div class="mb-3">
       <label for="formFile" class="form-label">Upload Land Photos</label>
       <input class="form-control" type="file" id="formFile" name='pic'>
   </div>
-    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
+    <button type="submit" class="btn btn-secondary" name="sub">Submit</button>
   </form>
 </div>
+</div>
+</div> 
 <?php
 if(isset($_POST['sub'])){
   $id=$_POST['land_id'];
@@ -71,7 +75,7 @@ if(isset($_POST['sub'])){
   $sql = "UPDATE land SET land_name='$lname', land_area='$larea' , land_cost='$lcost' , land_agent_id= '$agent',
   ls_id = '$status'  WHERE land_id=$id";
   if ($conn->query($sql) === TRUE) {
-        // header('Location: landview.php');
+        header('Location: landview.php');
       }else{
         echo "User image update failed.";
       }
@@ -88,6 +92,6 @@ if(isset($_POST['sub'])){
     }
   }
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+   echo "Error: " . $sql . "<br>" . $conn->error;
 } 
 ?>

@@ -16,6 +16,10 @@
     margin-left: 0 auto;
 
 }
+body{
+    background-color: #AED6F1;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
 .pli{
     margin-left: -100px;
 }
@@ -34,6 +38,22 @@
     box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
-.scrl{
+/* .scrl{
     overflow: scroll;
+} */
+
+.table{
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.table th {
+    background-color: #AFEEEE;
+    border: 1px solid gray;
+}
+
+@media only screen and (max-width: 600px) {
+    .pli{
+        margin: 0;
+    }
 }
