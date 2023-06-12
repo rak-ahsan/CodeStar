@@ -21,7 +21,7 @@
     </div>
     <div>
     <label for="larea" class="form-label">Status</label>
-      <select class="form-select form-select-sm in mb-1" name="status" aria-label=".form-select-sm example">
+    <select class="form-select form-select-sm in mb-1" name="status" aria-label=".form-select-sm example">
       <option selected>Open this select menu</option>
         <?php
          $sql = "SELECT * FROM land_status"; 
