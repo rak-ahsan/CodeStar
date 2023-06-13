@@ -19,11 +19,13 @@
       <label for="larea" class="form-label">Agent Contact</label>
       <input type="text" class="form-control mb-1 in" id="larea" name="acontact">
     </div>
+  
     <div class="mb-3">
       <label for="formFile" class="form-label">Upload Agent Photo</label>
       <input class="form-control" type="file" id="formFile" name="pic">
   </div>
-    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
+    <button type="submit" class="btn btn-secondary" name="sub">Submit</button>
+    <a  type="button"  href="agent.php" class="btn btn-secondary float-end">View All Agents</a>
   </form>
 </div>
 </div>

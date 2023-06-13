@@ -52,6 +52,7 @@
       <input class="form-control" type="file" id="formFile" name='pic'>
   </div>
     <button type="submit" class="btn btn-secondary " name="sub">Submit</button>
+    <a  type="button"  href="landview.php" class="btn btn-secondary float-end">View All land</a>
   </form>
  </div>
  </div>

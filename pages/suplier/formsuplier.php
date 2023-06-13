@@ -3,7 +3,7 @@
   get_side();
 ?>
 
-<div class="col-md-10  container d-flex justify-content-center bg-light ">
+<div class="col-md-10  container d-flex justify-content-center ">
  <div class="col-md-4">
  <form method="post" class="col-md-12 bg-light mt-3 pdiv" enctype="multipart/form-data">
   <div class=" p-3">

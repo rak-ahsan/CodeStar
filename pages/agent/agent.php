@@ -30,7 +30,7 @@
                    }
 
                  echo "</td>
-                <td><a type='button' class='btn nav-link' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-regular fa-pen-to-square fa-xl'></i></a></td>
+                <td><a type='button' href=agentupdate.php?id=$row[land_agent_id] class='btn nav-link'><i class='fa-regular fa-pen-to-square fa-xl'></i></a></td>
                 <td><a class='btn ' href=agentdelete.php?id=$row[land_agent_id]><i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a></td>
             <tr>
             

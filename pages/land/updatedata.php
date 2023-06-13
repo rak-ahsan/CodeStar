@@ -1,15 +1,15 @@
 <?php include('../../includes/conf.php');
-  // get_header();
-  // get_side();
-?>
-<?php
-    $userid = $_POST['userid'];
+  get_header();
+  get_side();
+
+    $userid = $_GET['id'];
     $sql = "SELECT * FROM land where land_id = $userid"; 
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 ?>
+
 <div class="col-md-12 container d-flex justify-content-center bg">
-  <div class="col-md-12">
+  <div class="col-md-4">
   <form method="post" class="col-md-12 bg-light mt-3 pdiv" enctype="multipart/form-data">
   <div class="p-3"> 
   <div>
@@ -57,12 +57,15 @@
       <label for="formFile" class="form-label">Upload Land Photos</label>
       <input class="form-control" type="file" id="formFile" name='pic'>
   </div>
-    <button type="submit" class="btn btn-secondary" name="sub">Submit</button>
+    
+  <input type="submit" class="btn btn-secondary" name="sub">
+
   </form>
 </div>
 </div>
-</div> 
+ 
 <?php
+
 if(isset($_POST['sub'])){
   $id=$_POST['land_id'];
   $lname=$_POST['lname'];
@@ -71,12 +74,11 @@ if(isset($_POST['sub'])){
   $status=$_POST['status'];
   $agent=$_POST['agent'];
   $image=$_FILES['pic'];
-  
-  echo $id;
+
   $sql = "UPDATE land SET land_name='$lname', land_area='$larea' , land_cost='$lcost' , land_agent_id= '$agent',
   ls_id = '$status'  WHERE land_id=$id";
   if ($conn->query($sql) === TRUE) {
-        // header('Location: landview.php');
+        header('Location: landview.php');
       }else{
         echo "User image update failed.";
       }
@@ -96,3 +98,4 @@ if(isset($_POST['sub'])){
 
 } 
 ?>
+

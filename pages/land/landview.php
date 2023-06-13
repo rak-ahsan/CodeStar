@@ -38,9 +38,8 @@
                    ?>
                 </td>
                 <td>
-                  <a type='button' data-id='<?=$row['land_id']?>' class='userinfo btn nav-link' data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class='fa-regular fa-pen-to-square fa-xl'></i>
-                  </a>
+                  <a class='btn nav-link' href='updatedata.php?id=<?=$row['land_id']?>'>
+                  <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
                    </td>
                 
                 <td>
@@ -56,7 +55,7 @@
         <?php }
                 
         ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
 <script type='text/javascript'>
             $(document).ready(function(){
@@ -74,22 +73,3 @@
                 });
             });
             </script>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
