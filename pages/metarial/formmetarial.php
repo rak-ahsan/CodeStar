@@ -4,7 +4,6 @@
 ?>
 
 <div class="col-md-10  container d-flex justify-content-center  ">
- <div class="col-md-3"></div>
  <div class="col-md-4">
  <form method="post" class="col-md-12 bg-light mt-3 pdiv" enctype="multipart/form-data">
   <div class=" p-3">
@@ -13,68 +12,60 @@
       <input type="text" class="form-control mb-1 in" id="metaril" name="mname">
     </div>
     <div>
-      <label for="mlist" class="form-label">Metarial Listing</label>
-      <input type="text" class="form-control mb-1 in" id="mlist" name="mliname">
+      <label for="mlist" class="form-label">Quantity</label>
+      <input type="text" class="form-control mb-1 in" id="mlist" name="mquantity">
     </div>
     <div>
-      <label for="mprice" class="form-label">Metarial Pricing</label>
-      <input type="text" class="form-control mb-1 in" id="mprice" name="mpname">
-    </div>
-    <div>
-    <label for="larea" class="form-label">Status</label>
-      <select class="form-select form-select-sm in mb-1" name="status" aria-label=".form-select-sm example">
-      <option selected>Open this select menu</option>
+    <label for="larea" class="form-label">Unit of Measurement</label>
+      <select class="form-select form-select-sm in mb-1" name="uom" aria-label=".form-select-sm example">
+      <option selected>Select Form Here </option>
         <?php
-         $sql = "SELECT * FROM land_status"; 
+         $sql = "SELECT * FROM unit_om"; 
          $result = $conn->query($sql);
          while ($row = $result->fetch_assoc()) {
         ?>
-          <option value= "<?php echo$row['ls_id'];?>"><?php echo$row['is_name'];?></option>
-          <?php }?>
-      </select>
-    </div>
-    <div>
-    <label for="larea" class="form-label">Agent</label>
-      <select class="form-select form-select-sm in mb-1" name="agent" aria-label=".form-select-sm example">
-      <option selected>Select Agent</option>
-        <?php
-         $sql = "SELECT * FROM land_agent"; 
-         $result = $conn->query($sql);
-         while ($row = $result->fetch_assoc()) {
-        ?>
-          <option value= "<?php echo $row['land_agent_id'];?>"> 
-          <?php echo$row['land_agent_name'];?>
+          <option value= "<?php echo $row['u_id'];?>"> 
+          <?php echo$row['u_name'];?>
         </option>
           <?php }?>
       </select>
     </div>
-    <div class="mb-3">
-      <label for="formFile" class="form-label">Upload Land Photos</label>
-      <input class="form-control" type="file" id="formFile" name='pic'>
-  </div>
-    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
+
+    <div>
+      <label for="mprice" class="form-label">Total Cost</label>
+      <input type="text" class="form-control mb-1 in" id="price" name="tcost">
+    </div>
+    <div>
+    <label for="larea" class="form-label">Suplier</label>
+      <select class="form-select form-select-sm in mb-1" name="sup" aria-label=".form-select-sm example">
+      <option selected>select a suplier</option>
+        <?php
+         $sql = "SELECT * FROM suplier"; 
+         $result = $conn->query($sql);
+         while ($row = $result->fetch_assoc()) {
+        ?>
+          <option value= "<?php echo$row['sup_id'];?>"><?php echo$row['sup_name'];?></option>
+          <?php }?>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-secondary mt-3" name="sub">Submit</button>
   </form>
  </div>
  </div>
- <div class="col-md-3"></div>
 </div>
 
 <?php
 if(isset($_POST['sub'])){
   $mname=$_POST['mname'];
-  $mlisting=$_POST['mliname'];
-  $mprice=$_POST['mpname'];
-  $status=$_POST['status'];
-  $agent=$_POST['agent'];
-  $image=$_FILES['pic'];
-  $imageName='';
-  if($image['name']!=''){
-    $imageName='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);
-  }
-if(!empty($mname)&& !empty($mlisting)&& !empty($mprice)&& !empty($status) && !empty($agent)){
-  $sql ="INSERT INTO metarial (metarial_name,metarial_listing,metarial_price,ls_id,land_agent_id,land_img ) VALUES('$mname',' $mlisting','$mprice','$status','$agent','$imageName')";
+  $mquantity=$_POST['mquantity'];
+  $uom=$_POST['uom'];
+  $tcost=$_POST['tcost'];
+  $sup=$_POST['sup'];
+  
+if(!empty($mname)&& !empty($mquantity)&& !empty($uom)&& !empty($tcost) && !empty($sup)){
+  $sql ="INSERT INTO metarial (metarial_name,mquantity,u_id,metarial_price,sup_id) VALUES('$mname',' $mquantity','$uom','$tcost','$sup')";
   if ($conn->query($sql) === TRUE) {
-    move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
+    header('location:mview.php');
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

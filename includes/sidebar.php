@@ -19,9 +19,9 @@
       <i class="fa-solid fa-warehouse fa-xl me-3" style="color: #ffffff;"></i>
                 Avaiable Property
       </a>
-      <a class = "nav-link p-3 aborder" href="#">
+      <a class = "nav-link p-3 aborder" href="../project/runningview.php">
       <i class="fa-solid fa-angles-right fa-xl me-3" style="color: #ffffff;"></i>
-              Running Project</a>
+              Ongoing Project</a>
       <a class = "nav-link p-3 aborder" href="#">
         <i class="fa-solid fa-arrows-down-to-people fa-xl me-3" style="color: #ffffff;"></i>
             Total Agent

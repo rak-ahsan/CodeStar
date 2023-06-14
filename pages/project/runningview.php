@@ -6,7 +6,7 @@
 <div class="col-md-10 table-responsive p-3">
 
 <?php 
-    $sql = "SELECT * FROM project natural join project_status"; 
+    $sql = "SELECT * FROM running_pj natural join project_status"; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -18,8 +18,6 @@
                 <th>Project Buget</th>
                 <th>Already Spend</th>
                 <th>Status</th>
-
-                <th colspan='2'>Action</th>
             </tr>
             </thead>
             "; 
@@ -31,8 +29,6 @@
                 <td>$row[project_price]</td>
                 <td>$row[spened]</td>
                 <td>$row[p_status]</td>
-                <td><a class='btn' href='pjupdate.php?id=$row[project_id]'><i class='fa-regular fa-pen-to-square fa-xl'></i> </a></td>
-                <td><a class='btn' href='pjdelete.php?id=$row[project_id]'><i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a></td>
             <tr>
             
             

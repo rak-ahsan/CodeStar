@@ -13,38 +13,40 @@
       <input type="text" class="form-control mb-1 in" id="pjname" name="pjname">
     </div>
     <div>
-      <label for="pjlocetion" class="form-label">Project Locetion</label>
+      <label for="pjlocetion" class="form-label">Project Location</label>
       <input type="text" class="form-control mb-1 in" id="pjlocetion" name="pjloname">
     </div>
     <div>
-      <label for="pjprice" class="form-label">Project Price</label>
+      <label for="pjprice" class="form-label">Project Buget</label>
       <input type="text" class="form-control mb-1 in" id="pjprice" name="pjpname">
+    </div>
+    <div>
+      <label for="pjprice" class="form-label">Invested</label>
+      <input type="text" class="form-control mb-1 in" id="pjprice" name="spened">
     </div>
     <div>
     <label for="larea" class="form-label">Status</label>
       <select class="form-select form-select-sm in mb-1" name="status" aria-label=".form-select-sm example">
       <option selected>Open this select menu</option>
         <?php
-         $sql = "SELECT * FROM land_status"; 
+         $sql = "SELECT * FROM project_status"; 
          $result = $conn->query($sql);
          while ($row = $result->fetch_assoc()) {
         ?>
-          <option value= "<?php echo$row['ls_id'];?>"><?php echo$row['is_name'];?></option>
+          <option value= "<?php echo$row['ps_id'];?>"><?php echo$row['p_status'];?></option>
           <?php }?>
       </select>
     </div>
     <div>
-    <label for="larea" class="form-label">Agent</label>
-      <select class="form-select form-select-sm in mb-1" name="agent" aria-label=".form-select-sm example">
-      <option selected>Select Agent</option>
+    <label for="larea" class="form-label">Developer</label>
+      <select class="form-select form-select-sm in mb-1" name="dev" aria-label=".form-select-sm example">
+      <option selected>Open this select menu</option>
         <?php
-         $sql = "SELECT * FROM land_agent"; 
+         $sql = "SELECT * FROM p_contactor"; 
          $result = $conn->query($sql);
          while ($row = $result->fetch_assoc()) {
         ?>
-          <option value= "<?php echo $row['land_agent_id'];?>"> 
-          <?php echo$row['land_agent_name'];?>
-        </option>
+          <option value= "<?php echo$row['pc_id'];?>"><?php echo$row['con_name'];?></option>
           <?php }?>
       </select>
     </div>
@@ -64,18 +66,15 @@ if(isset($_POST['sub'])){
   $pjname=$_POST['pjname'];
   $pjlocetion=$_POST['pjloname'];
   $pjprice=$_POST['pjpname'];
+  $spened=$_POST['spened'];
   $status=$_POST['status'];
-  $agent=$_POST['agent'];
-  $image=$_FILES['pic'];
-  $imageName='';
-  if($image['name']!=''){
-    $imageName='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);
-  }
-if(!empty($pjname)&& !empty($pjlocetion)&& !empty($pjprice)&& !empty($status) && !empty($agent)){
-  $sql ="INSERT INTO project (project_name,project_location,project_price,ls_id,land_agent_id,land_img )
-   VALUES('$pjname','$pjlocetion','$pjprice','$status','$agent','$imageName')";
+  $dev=$_POST['dev'];
+
+if(!empty($pjname)&& !empty($pjlocetion)&& !empty($pjprice)){
+  $sql ="INSERT INTO project (project_name,project_location,project_price,spened,ps_id,pc_id)
+   VALUES('$pjname','$pjlocetion','$pjprice','$spened','$status','$dev')";
   if ($conn->query($sql) === TRUE) {
-    move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
+  header('location:pjview.php');
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
