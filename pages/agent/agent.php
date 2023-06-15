@@ -8,7 +8,7 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<table class= 'table table-light border align-middle text-center table-bordered'; >";
+        echo "<table class= 'table table-light border align-middle text-center table-bordered tabel-responsive'; >";
         echo "<tr> 
                 <th class='col'>Name</th> 
                 <th class='col'>Area</th>

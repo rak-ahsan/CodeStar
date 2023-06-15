@@ -32,11 +32,11 @@ body{
 .aborder{
     border-bottom: 1px solid white;
     transition: .5s;
-    font-size: 15px;
+    font-size: 13px;
 }
 .aborder:hover{
     background-color: rgb(38, 153, 115);
-    font-size: 20px;
+    font-size: 15px;
 }
 .img{
     width: 100px;
