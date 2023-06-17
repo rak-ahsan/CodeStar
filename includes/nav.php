@@ -30,15 +30,6 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Property
-          </a>
-          <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="../property/formproperty.php">Add New Proparty</a></li>
-            <li><a class="dropdown-item" href="../property/propertyview.php">View All Property</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Suplier
           </a>
           <ul class="dropdown-menu navli">
@@ -65,21 +56,20 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Customer
+            Apartment
           </a>
           <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="../property/formproperty.php">Add New Aprtment</a></li>
+            <li><a class="dropdown-item" href="../property/propertyview.php">View All Aprtment</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Apartment
+          Customer
           </a>
           <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="../customar/add_new_customar.php">New Client</a></li>
+            <li><a class="dropdown-item" href="../customar/view_all_costomar.php">Client Detais</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>

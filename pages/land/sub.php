@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<button type="button" class="btn btn-info btn-lg passingID" data-id="10">Open Modal</button>
+<button type="button" class="btn btn-info btn-lg passingID"  id = "test" value="10">Open Modal</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
@@ -34,20 +34,13 @@
 <script>
   $(document).ready(function () {
     $(".passingID").click(function () {
-      var ids = $(this).attr('data-id');
+      var ids = $("#test").val();
       alert(ids);
-      $("#idkl").val(ids);
+      // $("#idkl").val(ids);
       $('#myModal').modal('show');
     });
   });
 </script>
-
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $id = $_POST['idkl'];
-  echo "The ID is: " . $id;
-}
-?>
 
 </body>
 </html>

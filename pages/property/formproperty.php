@@ -8,15 +8,15 @@
  <form method="post" class="col-md-12 bg-light mt-3 pdiv" enctype="multipart/form-data">
   <div class=" p-3">
     <div>
-      <label for="prop" class="form-label mt-3">Property Name</label>
+      <label for="prop" class="form-label mt-3">Apartment Name</label>
       <input type="text" class="form-control mb-1 in" id="prop" name="pname">
     </div>
     <div>
-      <label for="ploc" class="form-label">Property Location</label>
+      <label for="ploc" class="form-label">Apartment Location</label>
       <input type="text" class="form-control mb-1 in" id="ploc" name="ploname">
     </div>
     <div>
-      <label for="pcost" class="form-label">Property Cost</label>
+      <label for="pcost" class="form-label">Apartment Total Cost</label>
       <input type="text" class="form-control mb-1 in" id="pcost" name="pconame">
     </div>
     <div>

@@ -18,9 +18,20 @@
       <input type="text" class="form-control mb-1 in" id="land" name="aname" value="<?= $row['land_agent_name']?>">
       <input type="hidden" class="form-control mb-1 in" id="land" name="id" value="<?= $row['land_agent_id']?>">
     </div>
-    <div >
-      <label for="larea" class="form-label">Agent Location</label>
-      <input type="text" class="form-control mb-1 in" id="larea" name="aarea" value="<?= $row['land_agent_location']?>">
+    <div>
+    <label for="larea" class="form-label">Agent Area</label>
+      <select class="form-select form-select-sm in mb-1" name="aarea" aria-label=".form-select-sm example">
+      <option selected>Select Agent Area</option>
+        <?php
+         $sql = "SELECT * FROM area"; 
+         $result = $conn->query($sql);
+         while ($rows = $result->fetch_assoc()) {
+        ?>
+          <option value= "<?php echo $rows['area_id'];?>" <?php if($rows['area_id']==$row['land_agent_location']){echo 'selected';}?>> 
+          <?php echo$rows['area_name'];?>
+        </option>
+          <?php }?>
+      </select>
     </div>
     <div >
       <label for="larea" class="form-label">Agent Contact</label>

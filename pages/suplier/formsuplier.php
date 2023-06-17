@@ -48,7 +48,7 @@ if(isset($_POST['sub'])){
   $sup_email=$_POST['ename'];
   $tamount=$_POST['tamount'];
   $tpaid=$_POST['tpaid'];
-  $image=$_FILES['pic'];
+  // $image=$_FILES['pic'];
   $imageName='';
   if($image['name']!=''){
     $imageName='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);

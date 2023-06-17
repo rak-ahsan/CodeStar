@@ -2,9 +2,10 @@
   get_header();
   get_side();
 ?>
-<div class="col-md-10 p-3">
+<div class="col-md-10 p-3 table-responsive tb">
 <?php 
-    $sql = "SELECT * FROM land_agent"; 
+    $sql = "SELECT * FROM land_agent 
+    JOIN area ON land_agent.land_agent_location = area.area_id"; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -20,7 +21,7 @@
             echo "
             <tr>
                 <td>$row[land_agent_name]</td>
-                <td>$row[land_agent_location]</td>
+                <td>$row[area_name]</td>
                 <td>$row[land_agent_contact]</td>
                 <td>";
                      if($row['agent_img']!=''){ 

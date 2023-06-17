@@ -64,8 +64,6 @@
 </div>
  
 <?php
-
-<?php
 if(isset($_POST['sub'])){
   $bname=$_POST['bname'];
   $barea=$_POST['barea'];

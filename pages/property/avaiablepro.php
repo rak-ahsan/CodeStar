@@ -4,7 +4,7 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM property natural JOIN land_agent natural JOIN land_status"; 
+    $sql = "SELECT * FROM avaiablepro natural JOIN land_agent natural JOIN land_status"; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -39,8 +39,8 @@
                 </td>
                 <td>
 
-                  <button class='btn nav-link' class="btn btn-primary " id = "passingID" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<?=$row['property_id']?>">
-                  <i class='fa-regular fa-pen-to-square fa-xl'></i></button>
+                  <!-- <button class='btn nav-link' class="btn btn-primary " id = "passingID" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<?=$row['property_id']?>">
+                  <i class='fa-regular fa-pen-to-square fa-xl'></i></button> -->
                    </td>
                    <td>
                     <a class='btn nav-link' href='proupdatedata.php?id=<?=$row['property_id']?>'>
@@ -61,15 +61,3 @@
         <?php }
                 
         ?>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script>
-  $(document).ready(function () {
-    $("#passingID").click(function () {
-      var ids = $(this).data("id");
-      alert(ids);
-    });
-  });
-</script>
