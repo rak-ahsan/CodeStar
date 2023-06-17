@@ -32,11 +32,15 @@ body{
 .aborder{
     border-bottom: 1px solid white;
     transition: .5s;
-    font-size: 15px;
+    font-size: 13px;
 }
 .aborder:hover{
     background-color: rgb(38, 153, 115);
+<<<<<<< HEAD
     font-size: 18px;
+=======
+    font-size: 15px;
+>>>>>>> c7ffd939706368ed3f2c97684175487d51501f69
 }
 .img{
     width: 100px;
@@ -65,7 +69,11 @@ form{
     font-size: 14px;
 }
 
+<<<<<<< HEAD
 @media only screen and (max-width:768px) {
+=======
+@media only screen and (max-width: 768px) {
+>>>>>>> c7ffd939706368ed3f2c97684175487d51501f69
     .aborder{
         font-size: 16px;
         padding: 5px;
@@ -74,10 +82,25 @@ form{
         font-size: 16px;
 
     }
+<<<<<<< HEAD
 
     .rak{
         display: block!important;
     }
+=======
+    .rak{
+        display: block!important;
+    }
+
+    table{
+        font-size: 10px;
+        padding: 0px !important;
+    }
+    .res{
+        padding: 0 !important;
+    }
+
+>>>>>>> c7ffd939706368ed3f2c97684175487d51501f69
   }
 .box1{
 font-size: 50px !important;

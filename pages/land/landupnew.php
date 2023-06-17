@@ -2,7 +2,7 @@
   get_header();
   get_side();
 ?>
-<div class="col-md-10 table-responsive-sm p-3 res">
+<div class="col-md-10 table-responsive p-3">
 <?php 
     $sql = "SELECT * FROM land natural JOIN land_agent Natural JOIN land_status"; 
     $result = $conn->query($sql);
@@ -38,7 +38,7 @@
                    ?>
                 </td>
                 <td>
-                  <a class='btn nav-link' href='updatedata.php?id=<?=$row['land_id']?>'>
+                  <a type="button" class="btn nav-link userinfo" data-id="<?=$row['land_id']?>" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
                    </td>
                 
@@ -55,14 +55,14 @@
         <?php }
                 
         ?>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
 <script type='text/javascript'>
             $(document).ready(function(){
                 $('.userinfo').click(function(){
-                    var userid = $(this).data('id');
+                    var userid = $(this).attr('data-id');
                     $.ajax({
-                        url: 'updatedata.php',
+                        url: 'updatedatacopy.php',
                         type: 'post',
                         data: {userid: userid},
                         success: function(response){ 
@@ -72,7 +72,21 @@
                     });
                 });
             });
-            </script> -->
-        </div>
+</script>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+      </div>
     </div>
+  </div>
 </div>

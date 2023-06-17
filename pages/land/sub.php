@@ -6,8 +6,12 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <button type="button" class="btn btn-info btn-lg passingID"  id = "test" value="10">Open Modal</button>
+=======
+>>>>>>> c7ffd939706368ed3f2c97684175487d51501f69
 
+<button type="button" class="btn btn-info btn-lg passingID" data-id="10">Open Modal</button>
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
@@ -34,13 +38,23 @@
 <script>
   $(document).ready(function () {
     $(".passingID").click(function () {
+<<<<<<< HEAD
       var ids = $("#test").val();
       alert(ids);
       // $("#idkl").val(ids);
+=======
+      var ids = $(this).attr('data-id');
+
+      $("#idkl").val(ids);
+>>>>>>> c7ffd939706368ed3f2c97684175487d51501f69
       $('#myModal').modal('show');
     });
   });
 </script>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c7ffd939706368ed3f2c97684175487d51501f69
 </body>
 </html>
