@@ -65,15 +65,27 @@ form{
     font-size: 14px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .aborder{
-        font-size: 10px;
+        font-size: 16px;
         padding: 5px;
     }
     .aborder i{
-        font-size: 10px;
+        font-size: 16px;
 
     }
+    .rak{
+        display: block!important;
+    }
+
+    table{
+        font-size: 10px;
+        padding: 0px !important;
+    }
+    .res{
+        padding: 0 !important;
+    }
+
   }
 .box1{
 font-size: 50px !important;

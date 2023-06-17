@@ -2,8 +2,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../dist/css/style.css">
 </head>
-<div class="container-fluid d-flex justify-content-start gx-0 side">
-    <div class="col-md-2 vh-100 text-white scrl" >
+<div class="container-fluid  justify-content-start gx-0 side rak d-flex">
+    <div class="col-md-2 vh-100 text-white" >
       <div class="side vh-100" style="background-color: #123456;">
       <a class = " nav-link p-3 aborder" style = "border-top:1px solid white" href="../index/index.php"><i class="fa-solid fa-gauge fa-xl me-3" style="color: #fcfcfc;"></i>
                     Dashboard </a>
