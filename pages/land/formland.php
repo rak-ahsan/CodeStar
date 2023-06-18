@@ -19,6 +19,12 @@
       <label for="larea" class="form-label">Land Cost</label>
       <input type="text" class="form-control mb-1 in" id="larea" name="lcost">
     </div>
+
+    <div>
+      <label for="larea" class="form-label">land measurement</label>
+      <input type="text" class="form-control mb-1 in" id="larea" name="lme">
+    </div>
+
     <div>
     <label for="larea" class="form-label">Status</label>
     <select class="form-select form-select-sm in mb-1" name="status" aria-label=".form-select-sm example">
@@ -63,6 +69,7 @@ if(isset($_POST['sub'])){
   $lname=$_POST['lname'];
   $larea=$_POST['larea'];
   $lcost=$_POST['lcost'];
+  $lme=$_POST['lme'];
   $status=$_POST['status'];
   $agent=$_POST['agent'];
   $image=$_FILES['pic'];
@@ -71,7 +78,7 @@ if(isset($_POST['sub'])){
     $imageName='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);
   }
 if(!empty($lname)&& !empty($larea)&& !empty($lcost)&& !empty($status) && !empty($agent)){
-  $sql ="INSERT INTO land (land_name,land_area,land_cost,ls_id,land_agent_id,land_img ) VALUES('$lname','$larea','$lcost','$status','$agent','$imageName')";
+  $sql ="INSERT INTO land (land_name,land_area,land_cost,ls_id,land_agent_id,land_img,lme ) VALUES('$lname','$larea','$lcost','$status','$agent','$imageName','$lme')";
   if ($conn->query($sql) === TRUE) {
     move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
   } else {

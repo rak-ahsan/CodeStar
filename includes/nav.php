@@ -61,6 +61,7 @@
           <ul class="dropdown-menu navli">
             <li><a class="dropdown-item" href="../property/formproperty.php">Add New Aprtment</a></li>
             <li><a class="dropdown-item" href="../property/propertyview.php">View All Aprtment</a></li>
+            <li><a class="dropdown-item" href="../property/view.php">Agent Base Aprtment</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">

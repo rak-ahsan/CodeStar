@@ -4,7 +4,10 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM booking natural JOIN booking_type Natural JOIN payment Natural JOIN property"; 
+    $sql = "SELECT * FROM booking natural JOIN booking_type 
+    JOIN property ON property.property_id = booking.property_id
+    JOIN payment ON payment.pay_id = booking.payment
+    "; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

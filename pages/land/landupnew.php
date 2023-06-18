@@ -18,7 +18,7 @@
                     <th>Agent</th>
                     <th>Status</th>
                     <th>Photo</th>
-                    <th colspan='2'>Action</th>
+                    <th colspan='3'>Action</th>
                 </tr>
             </thead>
        <?php while ($row = $result->fetch_assoc()) {?>
@@ -39,9 +39,14 @@
                 </td>
                 <td>
                   <a type="button" class="btn nav-link userinfo" data-id="<?=$row['land_id']?>" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
+                  <i class="fa-regular fa-eye fa-xl" style="color: #0d6591;"></i></a>
                    </td>
                 
+                   <td>
+                   <a class='btn nav-link' href='updatedata.php?id=<?=$row['land_id']?>'>
+                  <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
+                   </td>
+
                 <td>
                   <a class='btn nav-link' href='Delete.php?id=<?=$row['land_id']?>'>
                   <i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a>
@@ -80,8 +85,8 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+      <div class="modal-header bg-success text-light">
+        <h1 class="modal-title  fs-5" id="exampleModalLabel">Land Details</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

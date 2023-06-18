@@ -6,7 +6,9 @@
 <div class="col-md-10 table-responsive p-3">
 
 <?php 
-    $sql = "SELECT * FROM running_pj natural join project_status"; 
+    $sql = "SELECT * FROM running_pj natural join project_status
+    JOIN area ON running_pj.project_location = area.area_id
+    "; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -25,7 +27,7 @@
             echo "<tbody>
             <tr>
                 <td>$row[project_name]</td>
-                <td>$row[project_location]</td>
+                <td>$row[area_name]</td>
                 <td>$row[project_price]</td>
                 <td>$row[spened]</td>
                 <td>$row[p_status]</td>

@@ -13,8 +13,19 @@
       <input type="text" class="form-control mb-1 in" id="pjname" name="pjname">
     </div>
     <div>
-      <label for="pjlocetion" class="form-label">Project Location</label>
-      <input type="text" class="form-control mb-1 in" id="pjlocetion" name="pjloname">
+    <label for="larea" class="form-label">Project location</label>
+      <select class="form-select form-select-sm in mb-1" name="pjloname" aria-label=".form-select-sm example">
+      <option selected>Select Your Area Area</option>
+        <?php
+         $sql = "SELECT * FROM area"; 
+         $result = $conn->query($sql);
+         while ($rows = $result->fetch_assoc()) {
+        ?>
+          <option value= "<?php echo $rows['area_id'];?>"> 
+          <?php echo$rows['area_name'];?>
+        </option>
+          <?php }?>
+      </select>
     </div>
     <div>
       <label for="pjprice" class="form-label">Project Buget</label>

@@ -31,7 +31,7 @@
                 <td><?=$row['sup_email']?></td>
                 <td><?=$row['tamount']?></td>
                 <td><?=$row['tpaid']?></td>
-                <td><?=$row['tdue']?></td>
+                <td><?php echo ($row['tamount']-$row['tpaid'])?></td>
                 <td><?=$row['submission_date']?></td>
                 <!-- <td>
                      <?php if($row['land_img']!=''){ 

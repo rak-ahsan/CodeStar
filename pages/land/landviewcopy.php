@@ -38,9 +38,14 @@
                    ?>
                 </td>
                 <td>
+                <a class='btn nav-link' href='updatedata.php?id=<?=$row['land_id']?>'>
+                  <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
+                </td>
+
+                <td>
                   <a class='btn nav-link' id ="sub" data-id="<?=$row['land_id']?>" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
-                   </td>
+                </td>
                 
                 <td>
                   <a class='btn nav-link' href='Delete.php?id=<?=$row['land_id']?>'>
