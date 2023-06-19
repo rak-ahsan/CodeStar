@@ -36,7 +36,9 @@
             <li><a class="dropdown-item" href="../suplier/formsuplier.php">Add A New Suplier</a></li>
             <li><a class="dropdown-item" href="../suplier/viewformsuplier.php">Suplier Details</a></li>
           </ul>
-          <li class="nav-item dropdown">
+        </li>
+
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Material
           </a>
@@ -45,6 +47,18 @@
             <li><a class="dropdown-item" href="../metarial/mview.php">View Metarial</a></li>
           </ul>
         </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Developer
+          </a>
+          <ul class="dropdown-menu navli">
+            <li><a class="dropdown-item" href="../developer/devadd.php">New Developer</a></li>
+            <li><a class="dropdown-item" href="../developer/dev.php">Developer Details</a></li>
+            <li><a class="dropdown-item" href="../developer/view.php">Developer Base Aprtment</a></li>
+          </ul>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Project

@@ -57,7 +57,7 @@
          $result = $conn->query($sql);
          while ($row = $result->fetch_assoc()) {
         ?>
-          <option value= "<?php echo$row['pc_id'];?>"><?php echo$row['con_name'];?></option>
+          <option value= "<?php echo$row['land_agent_id'];?>"><?php echo$row['land_agent_name'];?></option>
           <?php }?>
       </select>
     </div>

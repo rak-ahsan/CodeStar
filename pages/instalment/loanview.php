@@ -4,7 +4,10 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM instalment natural JOIN ins_type Natural JOIN land_status"; 
+    $sql = "SELECT * FROM instalment 
+    join ins_type on ins_type.ins_id = instalment.ins_per
+    join land_agent on land_agent.land_agent_id = instalment.agent";
+
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -13,11 +16,12 @@
             <thead>
                 <tr> 
                     <th>Appilier Name</th> 
-                    <th>Down Payment</th>
+                    <th>Total Payment</th>
                     <th>Percentage</th>
+                    <th>Monthly(Per Month)</th>
+                    <th>Total</th>
                     <th>Agent</th>
                     <th>Appilication Form</th>
-                    <th>Monthly Payment</th>
                     <th>date</th>
                     <th colspan='2'>Action</th>
 
@@ -30,6 +34,10 @@
                 <td><?=$row['downp']?></td>
                 <td value="<?=$row['ins_id']?>"><?=$row['ins_name']?></td>
 
+                <td><?php echo $a=(($row['ins_rate'] * $row['downp'])*$row['ins_month'])/ $row['ins_month'];?></td>
+                
+                <td><?php echo $a*$row['ins_month']?></td>
+
                 <td value="<?=$row['land_agent_id']?>"><?=$row['land_agent_name']?></td>
                 <td>
                      <?php if($row['from_pic']!=''){ 
@@ -39,13 +47,14 @@
                    }
                    ?>
                 </td>
+                <td><?=$row['apply_date']?></td>
                 <td>
-                  <a class='btn nav-link' href='updatedata.php?id=<?=$row['land_id']?>'>
+                  <a class='btn nav-link' href='updatedata.php?id=<?=$row['instal_id']?>'>
                   <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
                    </td>
                 
                 <td>
-                  <a class='btn nav-link' href='Delete.php?id=<?=$row['land_id']?>'>
+                  <a class='btn nav-link' href='Delete.php?id=<?=$row['instal_id']?>'>
                   <i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a>
                 </td>
             <tr>

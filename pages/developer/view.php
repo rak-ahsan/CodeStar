@@ -4,32 +4,29 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM land_agent_property_view
-    JOIN area ON land_agent_property_view.property_location = area.area_id "; 
+    $sql = "SELECT * FROM dev natural join project_status";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
     ?>
         <table class='table table-light align-middle text-center table-bordered'>
             <thead>
-            <tr> 
-                    
-
-                    <th>Apartment Name</th> 
-                    <th>Apartment Location</th>
-                    <th>Apartment Cost</th>
-                    <th>Assaingend Agent</th>
-                    <th>Contact</th>
+                <tr> 
+                <th>Project Name</th> 
+                    <th>Project Status</th>
+                    <th>Project Cost</th>
+                    <th>Assaingend  Developer</th>
+                    <th> Spened</th>
                 </tr>
             </thead>
        <?php while ($row = $result->fetch_assoc()) {?>
             <tbody>
             <tr>
-                <td><?=$row['property_name']?></td>
-                <td><?=$row['area_name']?></td>
-                <td><?=$row['property_cost']?></td>
+                <td><?=$row['project_name']?></td>
+                <td><?=$row['p_status']?></td>
+                <td><?=$row['project_price']?></td>
                 <td><?=$row['land_agent_name']?></td>
-                <td><?=$row['land_agent_contact']?></td>    
+                <td><?=$row['spened']?></td>    
             <tr>
             
             
