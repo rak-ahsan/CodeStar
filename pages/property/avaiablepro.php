@@ -4,7 +4,11 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM avaiablepro natural JOIN land_agent natural JOIN land_status"; 
+    $sql = "SELECT * FROM availablepro 
+    JOIN area ON area.area_id = availablepro.property_location
+    JOIN land_status ON land_status.ls_id = availablepro.ls_id
+     
+     "; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -25,9 +29,8 @@
             <tbody>
             <tr>
                 <td><?=$row['property_name']?></td>
-                <td><?=$row['property_location']?></td>
+                <td><?=$row['area_name']?></td>
                 <td><?=$row['property_cost']?></td>
-                <td value="<?=$row['land_agent_id']?>"><?=$row['land_agent_name']?></td>
                 <td value="<?=$row['property_id']?>"><?=$row['is_name']?></td>
                 <td>
                      <?php if($row['land_img']!=''){ 

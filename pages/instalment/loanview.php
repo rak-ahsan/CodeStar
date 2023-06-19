@@ -4,7 +4,7 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM instalment natural JOIN land_agent Natural JOIN land_status"; 
+    $sql = "SELECT * FROM instalment natural JOIN ins_type Natural JOIN land_status"; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -12,26 +12,28 @@
         <table class='table table-light align-middle text-center table-bordered'>
             <thead>
                 <tr> 
-                    <th>Loan no</th> 
-                    <th>loan catagory</th>
-                    <th>date</th>
+                    <th>Appilier Name</th> 
+                    <th>Down Payment</th>
+                    <th>Percentage</th>
                     <th>Agent</th>
-                    <th>Status</th>
-                    <th>Photo</th>
+                    <th>Appilication Form</th>
+                    <th>Monthly Payment</th>
+                    <th>date</th>
                     <th colspan='2'>Action</th>
+
                 </tr>
             </thead>
        <?php while ($row = $result->fetch_assoc()) {?>
             <tbody>
             <tr>
-                <td><?=$row['loan_no']?></td>
-                <td><?=$row['loan_catagory']?></td>
-                <td><?=$row['date_loan']?></td>
+                <td><?=$row['appname']?></td>
+                <td><?=$row['downp']?></td>
+                <td value="<?=$row['ins_id']?>"><?=$row['ins_name']?></td>
+
                 <td value="<?=$row['land_agent_id']?>"><?=$row['land_agent_name']?></td>
-                <td value="<?=$row['ls_id']?>"><?=$row['is_name']?></td>
                 <td>
-                     <?php if($row['land_img']!=''){ 
-                    echo "<img height='50' src='../../dist/images/land/$row[land_img]'>";
+                     <?php if($row['from_pic']!=''){ 
+                    echo "<img height='50' src='../../dist/images/land/$row[from_pic]'>";
                    }else{ 
                      echo '<img height="50" src="../../dist/images/pic/avatar.png" alt="Image">';
                    }
@@ -55,21 +57,3 @@
         <?php }
                 
         ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-
-<script type='text/javascript'>
-            $(document).ready(function(){
-                $('.userinfo').click(function(){
-                    var userid = $(this).data('id');
-                    $.ajax({
-                        url: 'updatedata.php',
-                        type: 'post',
-                        data: {userid: userid},
-                        success: function(response){ 
-                            $('.modal-body').html(response); 
-                            $('#exampleModal').modal('show'); 
-                        }
-                    });
-                });
-            });
-            </script>
