@@ -34,8 +34,16 @@
                 <td><?=$row['downp']?></td>
                 <td value="<?=$row['ins_id']?>"><?=$row['ins_name']?></td>
 
-                <td><?php echo $a=(($row['ins_rate'] * $row['downp'])*$row['ins_month'])/ $row['ins_month'];?> + <?= $row['downp']/$row['ins_month'] ?>=
-                <?php echo $a+ $row['downp']/$row['ins_month']?>
+                <td>
+                  <?php echo $a=(($row['ins_rate'] * $row['downp'])*$row['ins_month'])/ $row['ins_month'];?> + 
+                  <?php $c = $row['downp']/$row['ins_month'] ;
+                        echo $d = number_format($c, 2);
+                  ?>
+                  
+                  =
+                  <?php $b = $a+ $row['downp']/$row['ins_month'];
+                    echo $e = number_format($b, 2);
+                  ?>
               </td>
     
 

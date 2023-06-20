@@ -85,6 +85,9 @@ form{
     .res{
         padding: 0 !important;
     }
+    .pad{
+        text-align: left !important;
+    }
 
   }
 .box1{

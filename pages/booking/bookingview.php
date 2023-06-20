@@ -6,7 +6,7 @@
 <?php 
     $sql = "SELECT * FROM booking natural JOIN booking_type 
     JOIN property ON property.property_id = booking.property_id
-    JOIN payment ON payment.pay_id = booking.payment
+    JOIN payment ON payment.pay_id = booking.payment ORDER BY booking.bking_id = 'DESC'
     "; 
     $result = $conn->query($sql);
 
