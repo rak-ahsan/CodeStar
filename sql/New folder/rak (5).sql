@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `area` (
   `area_id` int(11) NOT NULL,
   `area_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ;
 
 --
 -- Dumping data for table `area`
@@ -73,7 +73,7 @@ CREATE TABLE `booking` (
   `bt_id` int(11) DEFAULT NULL,
   `Payment` int(11) DEFAULT NULL,
   `property_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `booking`
@@ -93,7 +93,7 @@ INSERT INTO `booking` (`bking_id`, `bkng_area`, `bkng_cost`, `bkng_name`, `bt_id
 CREATE TABLE `booking_type` (
   `bt_id` int(11) NOT NULL,
   `btype` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `booking_type`
@@ -118,7 +118,7 @@ CREATE TABLE `customer` (
   `national_id` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `total_amount` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 -- --------------------------------------------------------
 
@@ -163,7 +163,7 @@ CREATE TABLE `instalment` (
   `agent` int(11) NOT NULL,
   `from_pic` varchar(50) NOT NULL,
   `apply_date` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ;
 
 --
 -- Dumping data for table `instalment`
@@ -183,7 +183,7 @@ CREATE TABLE `ins_type` (
   `ins_name` varchar(100) NOT NULL,
   `ins_rate` float NOT NULL,
   `ins_month` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ;
 
 --
 -- Dumping data for table `ins_type`
@@ -209,7 +209,7 @@ CREATE TABLE `land` (
   `land_img` varchar(255) DEFAULT NULL,
   `ls_id` int(11) DEFAULT NULL,
   `lme` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `land`
@@ -236,7 +236,7 @@ CREATE TABLE `land_agent` (
   `land_agent_contact` int(20) DEFAULT NULL,
   `land_agent_location` int(15) DEFAULT NULL,
   `agent_img` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `land_agent`
@@ -272,7 +272,7 @@ CREATE TABLE `land_agent_property_view` (
 CREATE TABLE `land_status` (
   `ls_id` int(11) NOT NULL,
   `is_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `land_status`
@@ -296,7 +296,7 @@ CREATE TABLE `metarial` (
   `purse_date` date DEFAULT curdate(),
   `sup_id` int(11) DEFAULT NULL,
   `u_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `metarial`
@@ -316,7 +316,7 @@ INSERT INTO `metarial` (`metarial_id`, `metarial_name`, `metarial_price`, `mquan
 CREATE TABLE `payment` (
   `pay_id` int(11) NOT NULL,
   `payname` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `payment`
@@ -340,7 +340,7 @@ CREATE TABLE `project` (
   `spened` int(11) DEFAULT NULL,
   `pc_id` int(11) DEFAULT NULL,
   `ps_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `project`
@@ -364,7 +364,7 @@ INSERT INTO `project` (`project_id`, `project_name`, `project_location`, `projec
 CREATE TABLE `project_status` (
   `ps_id` int(11) NOT NULL,
   `p_status` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `project_status`
@@ -388,7 +388,7 @@ CREATE TABLE `property` (
   `property_cost` varchar(255) DEFAULT NULL,
   `land_img` varchar(255) DEFAULT NULL,
   `ls_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `property`
@@ -416,7 +416,7 @@ CREATE TABLE `p_contactor` (
   `land_agent_contact` int(20) DEFAULT NULL,
   `land_agent_location` int(11) NOT NULL,
   `agent_img` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `p_contactor`
@@ -459,7 +459,7 @@ CREATE TABLE `suplier` (
   `tamount` varchar(255) DEFAULT NULL,
   `tdue` decimal(10,0) DEFAULT NULL,
   `tpaid` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `suplier`
@@ -480,7 +480,7 @@ INSERT INTO `suplier` (`sup_id`, `sup_name`, `sup_contact_no`, `sup_email`, `lan
 CREATE TABLE `unit_om` (
   `u_id` int(11) NOT NULL,
   `u_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `unit_om`

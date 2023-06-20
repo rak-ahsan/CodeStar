@@ -34,8 +34,11 @@
                 <td><?=$row['downp']?></td>
                 <td value="<?=$row['ins_id']?>"><?=$row['ins_name']?></td>
 
-                <td><?php echo $a=(($row['ins_rate'] * $row['downp'])*$row['ins_month'])/ $row['ins_month'];?></td>
-                
+                <td><?php echo $a=(($row['ins_rate'] * $row['downp'])*$row['ins_month'])/ $row['ins_month'];?> + <?= $row['downp']/$row['ins_month'] ?>=
+                <?php echo $a+ $row['downp']/$row['ins_month']?>
+              </td>
+    
+
                 <td><?php echo $a*$row['ins_month']?></td>
 
                 <td value="<?=$row['land_agent_id']?>"><?=$row['land_agent_name']?></td>

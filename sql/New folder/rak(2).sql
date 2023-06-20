@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2023 at 09:23 AM
+-- Generation Time: Jun 19, 2023 at 09:22 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -47,15 +47,14 @@ INSERT INTO `area` (`area_id`, `area_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `avaiablepro`
+-- Stand-in structure for view `availablepro`
 -- (See below for the actual view)
 --
-CREATE TABLE `avaiablepro` (
+CREATE TABLE `availablepro` (
 `property_id` int(11)
 ,`property_name` varchar(255)
 ,`property_location` varchar(255)
 ,`property_cost` varchar(255)
-,`land_agent_id` int(11)
 ,`land_img` varchar(255)
 ,`ls_id` int(11)
 );
@@ -81,7 +80,8 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`bking_id`, `bkng_area`, `bkng_cost`, `bkng_name`, `bt_id`, `Payment`, `property_id`) VALUES
-(1, 'dhaka', '80000', 'Rico Suarez', 2, 1, 1);
+(1, 'dhaka', '80000', 'Rico Suarez', 2, 1, 1),
+(3, 'qq', '8587', 'shuly', 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -126,14 +126,44 @@ CREATE TABLE `customer` (
 --
 
 CREATE TABLE `instalment` (
-  `id` int(11) NOT NULL,
-  `date_loan` varchar(255) DEFAULT NULL,
-  `loan_no` varchar(255) DEFAULT NULL,
-  `loan_category` varchar(255) DEFAULT NULL,
-  `ls_id` int(11) DEFAULT NULL,
-  `land_agent_id` varchar(255) DEFAULT NULL,
-  `land_img` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `instal_id` int(11) NOT NULL,
+  `appname` varchar(100) NOT NULL,
+  `downp` int(11) NOT NULL,
+  `ins_per` int(11) NOT NULL,
+  `agent` int(11) NOT NULL,
+  `from_pic` varchar(50) NOT NULL,
+  `apply_date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `instalment`
+--
+
+INSERT INTO `instalment` (`instal_id`, `appname`, `downp`, `ins_per`, `agent`, `from_pic`, `apply_date`) VALUES
+(1, 'jahid', 452000, 2, 1, 'Array', '2023-06-19'),
+(2, 'jahid', 452000, 1, 6, 'Array', '2023-06-19'),
+(3, 'jahid', 452000, 1, 6, 'user_1687157736_194575.png', '2023-06-19'),
+(4, 'jahid', 452000, 2, 1, '', '2023-06-19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ins_type`
+--
+
+CREATE TABLE `ins_type` (
+  `ins_id` int(11) NOT NULL,
+  `ins_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ins_type`
+--
+
+INSERT INTO `ins_type` (`ins_id`, `ins_name`) VALUES
+(1, '15% For Monthly(12)'),
+(2, '10% For Monthly(6)'),
+(3, '8% For Monthly(3)');
 
 -- --------------------------------------------------------
 
@@ -184,8 +214,22 @@ INSERT INTO `land_agent` (`land_agent_id`, `land_agent_name`, `land_agent_contac
 (1, 'karim', 1, 1, 'user_1687023036_2376443.png'),
 (6, 'pial', 1758053665, 0, ''),
 (8, 'pial', 1775566771, 2, ''),
-(9, 'tarik', 1775566772, 1, ''),
-(10, 'tarik', 1775566772, 5, '');
+(10, 'tarik', 1775566772, 1, ''),
+(11, 'jahangir', 1775566772, 4, '');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `land_agent_property_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `land_agent_property_view` (
+`property_name` varchar(255)
+,`property_location` varchar(255)
+,`property_cost` varchar(255)
+,`land_agent_name` varchar(255)
+,`land_agent_contact` int(20)
+);
 
 -- --------------------------------------------------------
 
@@ -229,7 +273,10 @@ CREATE TABLE `metarial` (
 INSERT INTO `metarial` (`metarial_id`, `metarial_name`, `metarial_price`, `mquantity`, `purse_date`, `sup_id`, `u_id`) VALUES
 (5, 'rak', '58000', 520, '2023-06-17', 1, 1),
 (6, 'rak', '58000', 520, '2023-06-17', 1, 1),
-(7, 'rashida', '50000', 50, '2023-06-17', 1, 1);
+(7, 'rashida', '50000', 50, '2023-06-17', 1, 1),
+(8, 'cement', '984000', 50, '2023-06-19', 1, 3),
+(9, 'cement', '984000', 50, '2023-06-19', 2, 3),
+(10, 'cement', '984000', 50, '2023-06-19', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -275,7 +322,9 @@ INSERT INTO `project` (`project_id`, `project_name`, `project_location`, `projec
 (2, 'lmc', 'Uttara', '48000000', 1000000, 0, 0),
 (3, 'uiykh', 'svsf', '82000', 900, 0, 0),
 (4, 'lmc', 'Uttara', '48000000', 1000000, 1, 1),
-(5, 'kdc', 'dhanmondi', '700000', 95000, 1, 1);
+(5, 'kdc', 'dhanmondi', '700000', 95000, 1, 1),
+(6, 'MultiBulid', '3', '700000', 95000, 1, 1),
+(8, 'Mult', '1', '700000', 95000, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -308,7 +357,6 @@ CREATE TABLE `property` (
   `property_name` varchar(255) DEFAULT NULL,
   `property_location` varchar(255) DEFAULT NULL,
   `property_cost` varchar(255) DEFAULT NULL,
-  `land_agent_id` int(11) DEFAULT NULL,
   `land_img` varchar(255) DEFAULT NULL,
   `ls_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -317,8 +365,15 @@ CREATE TABLE `property` (
 -- Dumping data for table `property`
 --
 
-INSERT INTO `property` (`property_id`, `property_name`, `property_location`, `property_cost`, `land_agent_id`, `land_img`, `ls_id`) VALUES
-(1, 'Rakib', ' fff', '33333', 1, '', 1);
+INSERT INTO `property` (`property_id`, `property_name`, `property_location`, `property_cost`, `land_img`, `ls_id`) VALUES
+(1, 'Rakib', ' fff', '33333', '', 2),
+(3, 'motaz plaza', '1', '12331', '', 2),
+(4, 'saidur tower ', ' 5', '80000000', '', 1),
+(5, 'bairdsz', '6', '12331', 'user_1687155241_8142615.png', 1),
+(6, 'rakib tower ', '3', '58241', '', 1),
+(7, 'tanvir tower', '4', '900000', '', 2),
+(8, 'Shuly Tower', '2', '80000000', '', 1),
+(9, 'xyz', '4', '12331', '', 2);
 
 -- --------------------------------------------------------
 
@@ -378,7 +433,8 @@ CREATE TABLE `suplier` (
 --
 
 INSERT INTO `suplier` (`sup_id`, `sup_name`, `sup_contact_no`, `sup_email`, `land_img`, `submission_date`, `tamount`, `tdue`, `tpaid`) VALUES
-(1, 'kamrul', '01775566772', 'cloudysky121@gmail.com', '', '2023-06-17', '5000', NULL, '957');
+(1, 'kamrul', '01775566772', 'cloudysky121@gmail.com', '', '2023-06-17', '5000', NULL, '957'),
+(2, 'karim', '01775566772', 'karim@yahoo.com', NULL, '2023-06-19', '7000000', NULL, '12000');
 
 -- --------------------------------------------------------
 
@@ -404,11 +460,20 @@ INSERT INTO `unit_om` (`u_id`, `u_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure for view `avaiablepro`
+-- Structure for view `availablepro`
 --
-DROP TABLE IF EXISTS `avaiablepro`;
+DROP TABLE IF EXISTS `availablepro`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `avaiablepro`  AS SELECT `property`.`property_id` AS `property_id`, `property`.`property_name` AS `property_name`, `property`.`property_location` AS `property_location`, `property`.`property_cost` AS `property_cost`, `property`.`land_agent_id` AS `land_agent_id`, `property`.`land_img` AS `land_img`, `property`.`ls_id` AS `ls_id` FROM `property` WHERE `property`.`ls_id` = 11  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `availablepro`  AS SELECT `property`.`property_id` AS `property_id`, `property`.`property_name` AS `property_name`, `property`.`property_location` AS `property_location`, `property`.`property_cost` AS `property_cost`, `property`.`land_img` AS `land_img`, `property`.`ls_id` AS `ls_id` FROM `property` WHERE `property`.`ls_id` = 11  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `land_agent_property_view`
+--
+DROP TABLE IF EXISTS `land_agent_property_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `land_agent_property_view`  AS SELECT `p`.`property_name` AS `property_name`, `p`.`property_location` AS `property_location`, `p`.`property_cost` AS `property_cost`, `la`.`land_agent_name` AS `land_agent_name`, `la`.`land_agent_contact` AS `land_agent_contact` FROM (`property` `p` join `land_agent` `la` on(`p`.`property_location` = `la`.`land_agent_location`))  ;
 
 -- --------------------------------------------------------
 
@@ -454,7 +519,15 @@ ALTER TABLE `customer`
 -- Indexes for table `instalment`
 --
 ALTER TABLE `instalment`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`instal_id`),
+  ADD KEY `ins_per` (`ins_per`),
+  ADD KEY `agent` (`agent`);
+
+--
+-- Indexes for table `ins_type`
+--
+ALTER TABLE `ins_type`
+  ADD PRIMARY KEY (`ins_id`);
 
 --
 -- Indexes for table `land`
@@ -510,7 +583,6 @@ ALTER TABLE `project_status`
 --
 ALTER TABLE `property`
   ADD PRIMARY KEY (`property_id`),
-  ADD KEY `land_agent_id` (`land_agent_id`),
   ADD KEY `ls_id` (`ls_id`);
 
 --
@@ -545,7 +617,7 @@ ALTER TABLE `area`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `bking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `bking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `booking_type`
@@ -557,13 +629,19 @@ ALTER TABLE `booking_type`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `instalment`
 --
 ALTER TABLE `instalment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `instal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `ins_type`
+--
+ALTER TABLE `ins_type`
+  MODIFY `ins_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `land`
@@ -575,7 +653,7 @@ ALTER TABLE `land`
 -- AUTO_INCREMENT for table `land_agent`
 --
 ALTER TABLE `land_agent`
-  MODIFY `land_agent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `land_agent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `land_status`
@@ -587,7 +665,7 @@ ALTER TABLE `land_status`
 -- AUTO_INCREMENT for table `metarial`
 --
 ALTER TABLE `metarial`
-  MODIFY `metarial_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `metarial_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -599,7 +677,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `project_status`
@@ -611,7 +689,7 @@ ALTER TABLE `project_status`
 -- AUTO_INCREMENT for table `property`
 --
 ALTER TABLE `property`
-  MODIFY `property_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `property_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `p_contactor`
@@ -623,7 +701,7 @@ ALTER TABLE `p_contactor`
 -- AUTO_INCREMENT for table `suplier`
 --
 ALTER TABLE `suplier`
-  MODIFY `sup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `unit_om`
@@ -642,6 +720,13 @@ ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`bt_id`) REFERENCES `booking_type` (`bt_id`),
   ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`Payment`) REFERENCES `payment` (`pay_id`),
   ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`property_id`) REFERENCES `property` (`property_id`);
+
+--
+-- Constraints for table `instalment`
+--
+ALTER TABLE `instalment`
+  ADD CONSTRAINT `instalment_ibfk_1` FOREIGN KEY (`ins_per`) REFERENCES `ins_type` (`ins_id`),
+  ADD CONSTRAINT `instalment_ibfk_2` FOREIGN KEY (`agent`) REFERENCES `land_agent` (`land_agent_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
