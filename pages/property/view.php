@@ -4,8 +4,10 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM land_agent_property_view
-    JOIN area ON land_agent_property_view.property_location = area.area_id "; 
+    $sql = "SELECT * FROM property
+    JOIN area ON property.property_location = area.area_id 
+    JOIN land_agent ON land_agent.land_agent_location = property.property_location 
+    "; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -13,8 +15,6 @@
         <table class='table table-light align-middle text-center table-bordered'>
             <thead>
             <tr> 
-                    
-
                     <th>Apartment Name</th> 
                     <th>Apartment Location</th>
                     <th>Apartment Cost</th>

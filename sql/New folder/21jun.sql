@@ -50,7 +50,7 @@ INSERT INTO `area` (`area_id`, `area_name`) VALUES
 -- Stand-in structure for view `availablepro`
 -- (See below for the actual view)
 --
-CREATE TABLE `availablepro` (
+CREATE view `availablepro` (
 `property_id` int(11)
 ,`property_name` varchar(255)
 ,`property_location` int(255)
@@ -502,7 +502,7 @@ INSERT INTO `unit_om` (`u_id`, `u_name`) VALUES
 --
 DROP TABLE IF EXISTS `availablepro`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `availablepro`  AS SELECT `property`.`property_id` AS `property_id`, `property`.`property_name` AS `property_name`, `property`.`property_location` AS `property_location`, `property`.`property_cost` AS `property_cost`, `property`.`land_img` AS `land_img`, `property`.`ls_id` AS `ls_id` FROM `property` WHERE `property`.`ls_id` = 1111  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`CURRENT_USER` SQL SECURITY INVOKER VIEW `availablepro`  AS SELECT `property`.`property_id` AS `property_id`, `property`.`property_name` AS `property_name`, `property`.`property_location` AS `property_location`, `property`.`property_cost` AS `property_cost`, `property`.`land_img` AS `land_img`, `property`.`ls_id` AS `ls_id` FROM `property` WHERE `property`.`ls_id` = 1111  ;
 
 -- --------------------------------------------------------
 
@@ -511,7 +511,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `dev`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dev`  AS SELECT `p`.`land_agent_name` AS `land_agent_name`, `pr`.`project_name` AS `project_name`, `pr`.`project_price` AS `project_price`, `pr`.`spened` AS `spened`, `p`.`land_agent_contact` AS `land_agent_contact`, `pr`.`ps_id` AS `ps_id` FROM (`p_contactor` `p` join `project` `pr`) WHERE `pr`.`project_location` = `p`.`land_agent_location``land_agent_location`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`CURRENT_USER` SQL SECURITY INVOKER VIEW `dev`  AS SELECT `p`.`land_agent_name` AS `land_agent_name`, `pr`.`project_name` AS `project_name`, `pr`.`project_price` AS `project_price`, `pr`.`spened` AS `spened`, `p`.`land_agent_contact` AS `land_agent_contact`, `pr`.`ps_id` AS `ps_id` FROM (`p_contactor` `p` join `project` `pr`) WHERE `pr`.`project_location` = `p`.`land_agent_location``land_agent_location`  ;
 
 -- --------------------------------------------------------
 
@@ -520,7 +520,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `dev_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dev_view`  AS SELECT `p`.`land_agent_name` AS `land_agent_name`, `pr`.`project_name` AS `project_name`, `pr`.`project_price` AS `project_price`, `pr`.`ps_id` AS `ps_id`, `pr`.`spened` AS `spened` FROM (`p_contactor` `p` join `project` `pr`) WHERE `pr`.`project_location` = `p`.`land_agent_location``land_agent_location`  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`CURRENT_USER` SQL SECURITY INVOKER VIEW `dev_view`  AS SELECT `p`.`land_agent_name` AS `land_agent_name`, `pr`.`project_name` AS `project_name`, `pr`.`project_price` AS `project_price`, `pr`.`ps_id` AS `ps_id`, `pr`.`spened` AS `spened` FROM (`p_contactor` `p` join `project` `pr`) WHERE `pr`.`project_location` = `p`.`land_agent_location``land_agent_location`  ;
 
 -- --------------------------------------------------------
 
@@ -529,7 +529,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `land_agent_property_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `land_agent_property_view`  AS SELECT `p`.`property_name` AS `property_name`, `p`.`property_location` AS `property_location`, `p`.`property_cost` AS `property_cost`, `la`.`land_agent_name` AS `land_agent_name`, `la`.`land_agent_contact` AS `land_agent_contact` FROM (`property` `p` join `land_agent` `la` on(`p`.`property_location` = `la`.`land_agent_location`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`CURRENT_USER` SQL SECURITY INVOKER VIEW `land_agent_property_view`  AS SELECT `p`.`property_name` AS `property_name`, `p`.`property_location` AS `property_location`, `p`.`property_cost` AS `property_cost`, `la`.`land_agent_name` AS `land_agent_name`, `la`.`land_agent_contact` AS `land_agent_contact` FROM (`property` `p` join `land_agent` `la` on(`p`.`property_location` = `la`.`land_agent_location`))  ;
 
 -- --------------------------------------------------------
 
@@ -538,7 +538,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `running_pj`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `running_pj`  AS SELECT `project`.`project_id` AS `project_id`, `project`.`project_name` AS `project_name`, `project`.`project_location` AS `project_location`, `project`.`project_price` AS `project_price`, `project`.`spened` AS `spened`, `project`.`pc_id` AS `pc_id`, `project`.`ps_id` AS `ps_id` FROM `project` WHERE `project`.`ps_id` = 11  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`CURRENT_USER` SQL SECURITY INVOKER VIEW `running_pj`  AS SELECT `project`.`project_id` AS `project_id`, `project`.`project_name` AS `project_name`, `project`.`project_location` AS `project_location`, `project`.`project_price` AS `project_price`, `project`.`spened` AS `spened`, `project`.`pc_id` AS `pc_id`, `project`.`ps_id` AS `ps_id` FROM `project` WHERE `project`.`ps_id` = 11  ;
 
 --
 -- Indexes for dumped tables

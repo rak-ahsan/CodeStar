@@ -4,7 +4,13 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM dev natural join project_status";
+    $sql = "
+    SELECT pro.project_name, pro.project_price,pro.spened, pro.project_price, la.land_agent_name , la.land_agent_contact , ar.area_name
+    FROM property pro, land la, area ar
+    NATURAL JOIN project_status ps
+    JOIN area ar ON pro.property_location = ps.ps_id
+    
+    ";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -12,7 +18,7 @@
         <table class='table table-light align-middle text-center table-bordered'>
             <thead>
                 <tr> 
-                <th>Project Name</th> 
+                    <th>Project Name</th> 
                     <th>Project Status</th>
                     <th>Project Cost</th>
                     <th>Assaingend  Developer</th>
