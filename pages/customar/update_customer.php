@@ -15,7 +15,7 @@
   <div class=" p-3">
     <div>
       <label for="prop" class="form-label mt-3">Customer Name</label>
-      <input type="text" class="form-control mb-1 in" id="prop" name="cos-name" value="<?= $row['customer_name']?>">
+      <input type="text" class="form-control mb-1 in" id="prop" name="cos_name" value="<?= $row['customer_name']?>">
       <input type="hidden" class="form-control mb-1 in"  name="customer_id" value="<?= $row['customer_id']?>">
     </div>
     <div>
@@ -60,7 +60,8 @@
 
 <?php
     if(isset($_POST['sub'])){
-        $cos_name=$_POST['cos-name'];
+        $id=$_POST['customer_id'];
+        $name=$_POST['cos_name'];
         $email=$_POST['email'];
         $contact=$_POST['contact'];
         $national_id=$_POST['national_id'];
@@ -69,9 +70,9 @@
         $image=$_FILES['pic'];
 
     $sql = "UPDATE customer SET customer_name='$name', customer_email='$email' , customer_contact='$contact' , national_id= '$national_id',
-    total_amount = '$amount', status='$status'  WHERE property_id=$id";
+    total_amount = '$amount', status='$status'  WHERE customer_id=$id";
     if ($conn->query($sql) === TRUE) {
-            header('Location: view_all_customar.php');
+            header('Location:view_all_costomar.php');
         }else{
             echo "User image update failed.";
         }
@@ -82,7 +83,7 @@
         $updateImg="UPDATE customer SET land_img='$imageName' WHERE customer_id='$id'";
         if($conn->query($updateImg) === TRUE){
         move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
-         header('Location:view_all_customar.php');
+         header('Location:view_all_costomar.php');
         }else{
         echo "User image update failed.";
         }

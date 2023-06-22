@@ -4,7 +4,7 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM customer"; 
+    $sql = "SELECT * FROM customer join land_status on land_status.ls_id = customer.status"; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -30,13 +30,10 @@
                 <td><?=$row['customer_contact']?></td>
                 <td><?=$row['national_id']?></td>
                 <td><?=$row['total_amount']?></td>
-                <td><?=$row['status']?></td>
-                <td><?=$row['customer_img']?></td>
-                <td value="<?=$row['land_agent_id']?>"><?=$row['land_agent_name']?></td>
-                <td value="<?=$row['property_id']?>"><?=$row['is_name']?></td>
+                <td><?=$row['is_name']?></td>
                 <td>
-                     <?php if($row['land_img']!=''){ 
-                    echo "<img height='50' src='../../dist/images/land/$row[land_img]'>";
+                     <?php if($row['customer_img']!=''){ 
+                    echo "<img height='50' src='../../dist/images/land/$row[customer_img]'>";
                    }else{ 
                      echo '<img height="50" src="../../dist/images/pic/avatar.png" alt="Image">';
                    }
