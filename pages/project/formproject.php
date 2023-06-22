@@ -61,11 +61,7 @@
           <?php }?>
       </select>
     </div>
-    <div class="mb-3">
-      <label for="formFile" class="form-label">Upload Land Photos</label>
-      <input class="form-control" type="file" id="formFile" name='pic'>
-  </div>
-    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
+    <button type="submit" class="btn btn-primary mt-3" name="sub">Submit</button>
   </form>
  </div>
  </div>

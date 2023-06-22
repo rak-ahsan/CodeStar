@@ -4,11 +4,10 @@
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "
-    SELECT pro.project_name, pro.project_price,pro.spened, pro.project_price, la.land_agent_name , la.land_agent_contact , ar.area_name
-    FROM property pro, land la, area ar
-    NATURAL JOIN project_status ps
-    JOIN area ar ON pro.property_location = ps.ps_id
+    $sql = " SELECT * FROM project
+    JOIN area ON project.project_location = area.area_id 
+    JOIN p_contactor ON p_contactor.land_agent_id = project.pc_id 
+    JOIN project_status ON project_status.ps_id = project.ps_id 
     
     ";
     $result = $conn->query($sql);
