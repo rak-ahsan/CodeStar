@@ -14,9 +14,11 @@
                 <th class='col'>Name</th> 
                 <th class='col'>Area</th>
                 <th class='col'>Contact</th>
-                <th class='col'>Agent Photo</th>
-                <th class='col' colspan=3>Action</th>
-            </tr>"; 
+                <th class='col'>Agent Photo</th>";
+                if($_SESSION['role']==1){
+                echo "<th class='col' colspan=3>Action</th>";
+                }
+            echo "</tr>"; 
         while ($row = $result->fetch_assoc()) {
             echo "
             <tr>
@@ -29,15 +31,16 @@
                    }else{ 
                      echo '<img height="50" src="../../dist/images/pic/avatar.png" alt="Image"/>';
                    }
-
+                   if($_SESSION['role']==1){
                  echo "</td>
+                  
                 <td><a type='button' href=agentupdate.php?id=$row[land_agent_id] class='btn nav-link'><i class='fa-regular fa-pen-to-square fa-xl'></i></a></td>
                 <td><a class='btn ' href=agentdelete.php?id=$row[land_agent_id]><i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a></td>
             <tr>
             
             
             
-            ";
+            ";}
         };
     
         echo "</table>";

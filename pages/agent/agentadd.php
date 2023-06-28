@@ -30,7 +30,32 @@
       <label for="larea" class="form-label">Agent Contact</label>
       <input type="text" class="form-control mb-1 in" id="larea" name="acontact">
     </div>
-  
+    <div>
+    <label for="larea" class="form-label">Role</label>
+      <select class="form-select form-select-sm in mb-1" name="role" aria-label=".form-select-sm example">
+      <option selected>Select Agent Role</option>
+        <?php
+         $sql = "SELECT * FROM user"; 
+         $result = $conn->query($sql);
+         while ($rows = $result->fetch_assoc()) {
+        ?>
+          <option value= "<?php echo $rows['id'];?>"> 
+          <?php echo$rows['username'];?>
+        </option>
+          <?php }?>
+      </select>
+    </div>
+
+    <div >
+      <label for="land" class="form-label">username</label>
+      <input type="text" class="form-control mb-1 in" id="land" name="user_name">
+    </div>
+    
+    <div >
+      <label for="land" class="form-label">password</label>
+      <input type="text" class="form-control mb-1 in" id="land" name="password">
+    </div>
+
     <div class="mb-3">
       <label for="formFile" class="form-label">Upload Agent Photo</label>
       <input class="form-control" type="file" id="formFile" name="pic">
@@ -46,6 +71,9 @@ if(isset($_POST['sub'])){
   $aname=$_POST['aname'];
   $aarea=$_POST['aarea'];
   $acontact=$_POST['acontact'];
+  $role=$_POST['role'];
+  $user_name=$_POST['user_name'];
+  $password=$_POST['password'];
   $image=$_FILES['pic'];
   $imageName='';
   if($image['name']!=''){
@@ -53,8 +81,8 @@ if(isset($_POST['sub'])){
   }
 
 if(!empty($aname)&& !empty($aarea)&& !empty($acontact)){
-  $sql ="INSERT INTO land_agent (land_agent_name,land_agent_location,land_agent_contact,agent_img) 
-  VALUES('$aname','$aarea','$acontact','$imageName')";
+  $sql ="INSERT INTO land_agent (land_agent_name,land_agent_location,land_agent_contact,agent_img,user_id,user_name,password) 
+  VALUES('$aname','$aarea','$acontact','$imageName','$role','$user_name','$password')";
   if ($conn->query($sql) === TRUE) {
     move_uploaded_file($image['tmp_name'],'../../dist/images/agent/'.$imageName);
   } else {

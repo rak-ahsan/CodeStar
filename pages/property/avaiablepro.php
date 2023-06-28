@@ -3,12 +3,14 @@
   get_side();
 ?>
 <div class="col-md-10 table-responsive p-3">
+
 <?php 
+$id=$_SESSION['loc'];
     $sql = "SELECT p.property_name, p.property_location,p.land_img, p.property_cost, p.ls_id, ls.is_name, ar.area_name
     FROM property p
     NATURAL JOIN land_status ls
     JOIN area ar ON p.property_location = ar.area_id
-    WHERE p.ls_id = 1
+    WHERE p.property_location = $id
     ";
 
     $result = $conn->query($sql);
