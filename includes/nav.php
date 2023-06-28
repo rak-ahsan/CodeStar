@@ -13,7 +13,7 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-text navbar-dark p-3 gx-0" style="background-color: #123456;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Logo</a>
+    <a class="navbar-brand" href="#">CodeStar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,22 +30,15 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Property
-          </a>
-          <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="../property/formproperty.php">Add New Proparty</a></li>
-            <li><a class="dropdown-item" href="../property/propertyview.php">View All Property</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Suplier
           </a>
           <ul class="dropdown-menu navli">
             <li><a class="dropdown-item" href="../suplier/formsuplier.php">Add A New Suplier</a></li>
             <li><a class="dropdown-item" href="../suplier/viewformsuplier.php">Suplier Details</a></li>
           </ul>
-          <li class="nav-item dropdown">
+        </li>
+
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Material
           </a>
@@ -54,6 +47,18 @@
             <li><a class="dropdown-item" href="../metarial/mview.php">View Metarial</a></li>
           </ul>
         </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Developer
+          </a>
+          <ul class="dropdown-menu navli">
+            <li><a class="dropdown-item" href="../developer/devadd.php">New Developer</a></li>
+            <li><a class="dropdown-item" href="../developer/dev.php">Developer Details</a></li>
+            <li><a class="dropdown-item" href="../developer/view.php">Developer Base Aprtment</a></li>
+          </ul>
+        </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Project
@@ -65,21 +70,21 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Customer
+            Apartment
           </a>
           <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="../property/formproperty.php">Add New Aprtment</a></li>
+            <li><a class="dropdown-item" href="../property/propertyview.php">View All Aprtment</a></li>
+            <li><a class="dropdown-item" href="../property/view.php">Agent Base Aprtment</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Apartment
+          Customer
           </a>
           <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="../customar/add_new_customar.php">New Client</a></li>
+            <li><a class="dropdown-item" href="../customar/view_all_costomar.php">Client Detais</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>

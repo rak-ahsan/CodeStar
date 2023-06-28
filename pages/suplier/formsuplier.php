@@ -48,15 +48,15 @@ if(isset($_POST['sub'])){
   $sup_email=$_POST['ename'];
   $tamount=$_POST['tamount'];
   $tpaid=$_POST['tpaid'];
-  $image=$_FILES['pic'];
-  $imageName='';
-  if($image['name']!=''){
-    $imageName='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);
-  }
+  // $image=$_FILES['pic'];
+  // $imageName='';
+  // if($image['name']!=''){
+  //   $imageName='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);
+  // }
 if(!empty($sup_name)&& !empty($sup_contact_no)&& !empty($sup_email)){
-  $sql ="INSERT INTO suplier (sup_name,sup_contact_no,sup_email,tamount,tpaid,land_img ) VALUES('$sup_name','$sup_contact_no','$sup_email','$tamount','$tpaid','$imageName')";
+  $sql ="INSERT INTO suplier (sup_name,sup_contact_no,sup_email,tamount,tpaid ) VALUES('$sup_name','$sup_contact_no','$sup_email','$tamount','$tpaid')";
   if ($conn->query($sql) === TRUE) {
-    move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
+    // move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

@@ -65,7 +65,7 @@ if(isset($_POST['sub'])){
 if(!empty($mname)&& !empty($mquantity)&& !empty($uom)&& !empty($tcost) && !empty($sup)){
   $sql ="INSERT INTO metarial (metarial_name,mquantity,u_id,metarial_price,sup_id) VALUES('$mname',' $mquantity','$uom','$tcost','$sup')";
   if ($conn->query($sql) === TRUE) {
-    header('location:mview.php');
+    // header('location:mview.php');
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

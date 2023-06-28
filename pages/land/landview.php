@@ -2,7 +2,7 @@
   get_header();
   get_side();
 ?>
-<div class="col-md-10 table-responsive p-3">
+<div class="col-md-10 table-responsive-sm p-3 res">
 <?php 
     $sql = "SELECT * FROM land natural JOIN land_agent Natural JOIN land_status"; 
     $result = $conn->query($sql);
@@ -55,7 +55,7 @@
         <?php }
                 
         ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
 <script type='text/javascript'>
             $(document).ready(function(){
@@ -72,4 +72,7 @@
                     });
                 });
             });
-            </script>
+            </script> -->
+        </div>
+    </div>
+</div>

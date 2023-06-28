@@ -8,18 +8,29 @@
  <form method="post" class="col-md-12 bg-light mt-3 pdiv" enctype="multipart/form-data">
   <div class=" p-3">
     <div>
-      <label for="prop" class="form-label mt-3">Property Name</label>
+      <label for="prop" class="form-label mt-3">Apartment Name</label>
       <input type="text" class="form-control mb-1 in" id="prop" name="pname">
     </div>
     <div>
-      <label for="ploc" class="form-label">Property Location</label>
-      <input type="text" class="form-control mb-1 in" id="ploc" name="ploname">
+    <label for="larea" class="form-label">Apartment Area</label>
+      <select class="form-select form-select-sm in mb-1" name="ploname" aria-label=".form-select-sm example">
+      <option selected>Select Your Area Area</option>
+        <?php
+         $sql = "SELECT * FROM area"; 
+         $result = $conn->query($sql);
+         while ($rows = $result->fetch_assoc()) {
+        ?>
+          <option value= "<?php echo $rows['area_id'];?>"> 
+          <?php echo$rows['area_name'];?>
+        </option>
+          <?php }?>
+      </select>
     </div>
     <div>
-      <label for="pcost" class="form-label">Property Cost</label>
+      <label for="pcost" class="form-label">Apartment Total Cost</label>
       <input type="text" class="form-control mb-1 in" id="pcost" name="pconame">
     </div>
-    <div>
+    <!-- <div>
     <label for="larea" class="form-label">Agent</label>
       <select class="form-select form-select-sm in mb-1" name="agent" aria-label=".form-select-sm example">
       <option selected>Select Agent</option>
@@ -33,7 +44,7 @@
         </option>
           <?php }?>
       </select>
-    </div>
+    </div> -->
     <div>
     <label for="larea" class="form-label">Availability</label>
     <select class="form-select form-select-sm in mb-1" name="status" aria-label=".form-select-sm example">
@@ -63,17 +74,19 @@ if(isset($_POST['sub'])){
   $pname=$_POST['pname'];
   $plocetion=$_POST['ploname'];
   $pcost=$_POST['pconame'];
-  $agent=$_POST['agent'];
+  // $agent=$_POST['agent'];
   $status=$_POST['status'];
   $image=$_FILES['pic'];
   $imageName='';
   if($image['name']!=''){
     $imageName='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);
   }
-if(!empty($pname)&& !empty($plocetion)&& !empty($pcost) && !empty($agent)){
-  $sql ="INSERT INTO property (property_name,property_location,property_cost,land_agent_id,ls_id,land_img ) VALUES('$pname',' $plocetion','$pcost','$agent','$status','$imageName')";
+if(!empty($pname)&& !empty($plocetion)&& !empty($pcost)){
+  $sql ="INSERT INTO property (property_name,property_location,property_cost,ls_id,land_img ) VALUES('$pname',' $plocetion','$pcost','$status','$imageName')";
   if ($conn->query($sql) === TRUE) {
     move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
+
+    echo "hi";
   } else {
   }
 }

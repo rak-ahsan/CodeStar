@@ -13,8 +13,19 @@
       <input type="text" class="form-control mb-1 in" id="pjname" name="pjname">
     </div>
     <div>
-      <label for="pjlocetion" class="form-label">Project Location</label>
-      <input type="text" class="form-control mb-1 in" id="pjlocetion" name="pjloname">
+    <label for="larea" class="form-label">Project location</label>
+      <select class="form-select form-select-sm in mb-1" name="pjloname" aria-label=".form-select-sm example">
+      <option selected>Select Your Area Area</option>
+        <?php
+         $sql = "SELECT * FROM area"; 
+         $result = $conn->query($sql);
+         while ($rows = $result->fetch_assoc()) {
+        ?>
+          <option value= "<?php echo $rows['area_id'];?>"> 
+          <?php echo$rows['area_name'];?>
+        </option>
+          <?php }?>
+      </select>
     </div>
     <div>
       <label for="pjprice" class="form-label">Project Buget</label>
@@ -46,15 +57,11 @@
          $result = $conn->query($sql);
          while ($row = $result->fetch_assoc()) {
         ?>
-          <option value= "<?php echo$row['pc_id'];?>"><?php echo$row['con_name'];?></option>
+          <option value= "<?php echo$row['land_agent_id'];?>"><?php echo$row['land_agent_name'];?></option>
           <?php }?>
       </select>
     </div>
-    <div class="mb-3">
-      <label for="formFile" class="form-label">Upload Land Photos</label>
-      <input class="form-control" type="file" id="formFile" name='pic'>
-  </div>
-    <button type="submit" class="btn btn-primary" name="sub">Submit</button>
+    <button type="submit" class="btn btn-primary mt-3" name="sub">Submit</button>
   </form>
  </div>
  </div>

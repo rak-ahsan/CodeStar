@@ -8,30 +8,27 @@
  <form method="post" class="col-md-12 bg-light mt-3 pdiv" enctype="multipart/form-data">
   <div class=" p-3">
     <div>
-      <label for="lno" class="form-label mt-3">Loan Identification No</label>
-      <input type="text" class="form-control mb-1 in" id="lno" name="loan">
+      <label for="lno" class="form-label mt-3">Appilier Name</label>
+      <input type="text" class="form-control mb-1 in" id="lno" name="appname">
     </div>
     <div>
-      <label for="catagory" class="form-label">Loan Catagory</label>
-      <input type="text" class="form-control mb-1 in" id="catagory" name="cata">
+      <label for="lno" class="form-label">Down Payment</label>
+      <input type="text" class="form-control mb-1 in" id="lno" name="downp">
     </div>
     <div>
-      <label for="date" class="form-label">Date</label>
-      <input type="text" class="form-control mb-1 in" id="date" name="ldate">
-    </div>
-    <div>
-    <label for="larea" class="form-label">Status</label>
-    <select class="form-select form-select-sm in mb-1" name="status" aria-label=".form-select-sm example">
+    <label for="larea" class="form-label">Percentage</label>
+    <select class="form-select form-select-sm in mb-1" name="ins_per" aria-label=".form-select-sm example">
       <option selected>Open this select menu</option>
         <?php
-         $sql = "SELECT * FROM land_status"; 
+         $sql = "SELECT * FROM ins_type"; 
          $result = $conn->query($sql);
          while ($row = $result->fetch_assoc()) {
         ?>
-          <option value= "<?php echo$row['ls_id'];?>"><?php echo$row['is_name'];?></option>
+          <option value= "<?php echo$row['ins_id'];?>"><?php echo$row['ins_name'];?></option>
           <?php }?>
       </select>
     </div>
+
     <div>
     <label for="larea" class="form-label">Agent</label>
       <select class="form-select form-select-sm in mb-1" name="agent" aria-label=".form-select-sm example">
@@ -47,8 +44,9 @@
           <?php }?>
       </select>
     </div>
+
     <div class="mb-3">
-      <label for="formFile" class="form-label">Upload Land Photos</label>
+      <label for="formFile" class="form-label">Upload Appilication Form</label>
       <input class="form-control" type="file" id="formFile" name='pic'>
   </div>
     <button type="submit" class="btn btn-secondary " name="sub">Submit</button>
@@ -60,19 +58,18 @@
 
 <?php
 if(isset($_POST['sub'])){
-  $lnumb=$_POST['loan'];
-  $lcatagory=$_POST['cata'];
-  $date=$_POST['ldate'];
-  $status=$_POST['status'];
+  $appname=$_POST['appname'];
+  $downp=$_POST['downp'];
+  $ins_per=$_POST['ins_per'];
   $agent=$_POST['agent'];
   $image=$_FILES['pic'];
   $imageName='';
   if($image['name']!=''){
     $imageName='user_'.time().'_'.rand(100000,10000000).'.'.pathinfo($image['name'],PATHINFO_EXTENSION);
   }
-if(!empty($lnumb)&& !empty($lcatagory)&& !empty($date)&& !empty($status) && !empty($agent)){
-  $sql ="INSERT INTO instalment (loan_no,loan_catagory,date_loan,ls_id,land_agent_id,land_img ) 
-  VALUES('$lnumb','$lcatagory','$date','$status','$agent','$imageName')";
+if(!empty($appname)&& !empty($downp)&& !empty($ins_per)&& !empty($agent) && !empty($image)){
+  $sql ="INSERT INTO instalment (appname,downp,ins_per ,agent,from_pic ) 
+  VALUES('$appname','$downp','$ins_per','$agent','$imageName')";
   if ($conn->query($sql) === TRUE) {
     move_uploaded_file($image['tmp_name'],'../../dist/images/land/'.$imageName);
   } else {

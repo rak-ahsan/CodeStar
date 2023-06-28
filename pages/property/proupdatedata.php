@@ -17,9 +17,20 @@
       <input type="text" class="form-control mb-1 in" id="land" name="pname" value="<?= $row['property_name']?>">
       <input type="hidden" class="form-control mb-1 in"  name="property_id" value="<?= $row['property_id']?>">
     </div>
-    <div >
-      <label for="larea" class="form-label">Land Area</label>
-      <input type="text" class="form-control mb-1 in" id="larea" name="larea" value="<?= $row['property_location']?>">
+    <div>
+    <label for="larea" class="form-label">Apartment Area</label>
+      <select class="form-select form-select-sm in mb-1" name="ploname" aria-label=".form-select-sm example">
+      <option selected>Select Your Area Area</option>
+        <?php
+         $sql = "SELECT * FROM area"; 
+         $result = $conn->query($sql);
+         while ($rows = $result->fetch_assoc()) {
+        ?>
+          <option value= "<?php echo $rows['area_id'];?>" <?php if($rows['area_id']==$row['property_location']){echo 'selected';}?>> 
+          <?php echo$rows['area_name'];?>
+        </option>
+          <?php }?>
+      </select>
     </div>
     <div >
       <label for="larea" class="form-label">Land Cost</label>
@@ -38,7 +49,7 @@
           <?php }?>
       </select>
     </div>
-    <div >
+    <!-- <div >
     <label for="larea" class="form-label">Agent</label>
       <select class="form-select form-select-sm in mb-1" name="agent" aria-label=".form-select-sm example">
       <option>Select Agent</option>
@@ -52,7 +63,7 @@
         </option>
           <?php }?>
       </select>
-    </div>
+    </div> -->
     <div class="mb-3">
       <label for="formFile" class="form-label">Upload Land Photos</label>
       <input class="form-control" type="file" id="formFile" name='pic'>
@@ -69,13 +80,13 @@
 if(isset($_POST['sub'])){
   $id=$_POST['property_id'];
   $pname=$_POST['pname'];
-  $plocetion=$_POST['larea'];
+  $plocetion=$_POST['ploname'];
   $pcost=$_POST['lcost'];
-  $agent=$_POST['agent'];
+  // $agent=$_POST['agent'];
   $status=$_POST['status'];
   $image=$_FILES['pic'];
 
-  $sql = "UPDATE property SET property_name='$pname', property_location='$plocetion' , property_cost='$pcost' , land_agent_id= '$agent',
+  $sql = "UPDATE property SET property_name='$pname', property_location='$plocetion' , property_cost='$pcost' ,
   ls_id = '$status'  WHERE property_id=$id";
   if ($conn->query($sql) === TRUE) {
         header('Location: propertyview.php');
