@@ -16,8 +16,18 @@
                Add New Agent
       </a>
       <?php } ?>
+
+      <?php if($_SESSION['role']==2) {?>
+      <a class = " nav-link p-3 aborder" href="../agent/psagent.php"> 
+        <i class="fa-solid fa-gauge fa-xl me-3"></i>Dashboard
+      </a>
+      <?php } ?>
+
+
       <a class = " nav-link p-3 aborder" href="../agent/agent.php"> 
-        <i class="fa-solid fa-users-viewfinder fa-xl me-3"></i>View Agents</a>
+        <i class="fa-solid fa-users-viewfinder fa-xl me-3"></i>View Agents
+      </a>
+
       <a class = " nav-link p-3 aborder" href="#">
       <i class="fa-solid fa-money-bill-trend-up fa-xl me-3" style="color: #ffffff;"></i>
               Total Profit</a>
@@ -33,7 +43,7 @@
               Booking</a>
       <?php } ?>
       <a class = "nav-link p-3 aborder" href="../project/runningview.php">
-      <i class="fa-solid fa-angles-right fa-xl me-3" style="color: #ffffff;"></i>Ongoing Project</a>
+      <i class="fa-solid fa-person-digging fa-xl me-3" style="color: #ffffff;"></i>Ongoing Project</a>
       <a class = "nav-link p-3 aborder" href="#">
         <i class="fa-solid fa-arrows-down-to-people fa-xl me-3" style="color: #ffffff;"></i>
             Total Agent

@@ -1,6 +1,7 @@
 <?php include('../../includes/conf.php');
   get_header();
   get_side();
+  agent();
 ?>
 <?php
     $id=$_GET['id'];

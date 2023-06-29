@@ -46,6 +46,8 @@
             </tbody>
             <?php }?>
         </table>
-        <?php }
+        <?php } else{
+            echo "<h1>No Property avaiable for You right Now</h1>";
+        }
                 
         ?>
