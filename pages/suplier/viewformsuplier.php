@@ -1,6 +1,7 @@
 <?php include('../../includes/conf.php');
   get_header();
   get_side();
+  agent();
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 

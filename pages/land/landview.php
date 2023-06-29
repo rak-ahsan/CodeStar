@@ -18,7 +18,9 @@
                     <th>Agent</th>
                     <th>Status</th>
                     <th>Photo</th>
+                  <?php if($_SESSION['role']==1){?>  
                     <th colspan='2'>Action</th>
+                  <?php }?>
                 </tr>
             </thead>
        <?php while ($row = $result->fetch_assoc()) {?>
@@ -37,6 +39,7 @@
                    }
                    ?>
                 </td>
+                <?php if($_SESSION['role']==1){?>
                 <td>
                   <a class='btn nav-link' href='updatedata.php?id=<?=$row['land_id']?>'>
                   <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
@@ -46,6 +49,7 @@
                   <a class='btn nav-link' href='Delete.php?id=<?=$row['land_id']?>'>
                   <i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a>
                 </td>
+                <?php } ?>
             <tr>
             
             
