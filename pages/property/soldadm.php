@@ -5,12 +5,11 @@
 <div class="col-md-10 table-responsive p-3">
 
 <?php 
-$id=$_SESSION['loc'];
     $sql = "SELECT p.property_name, p.property_location,p.land_img, p.property_cost, p.ls_id, ls.is_name, ar.area_name
     FROM property p
     NATURAL JOIN land_status ls
     JOIN area ar ON p.property_location = ar.area_id
-    WHERE p.property_location = $id and p.ls_id=1;
+    WHERE p.ls_id = 3
     ";
 
     $result = $conn->query($sql);
@@ -22,7 +21,7 @@ $id=$_SESSION['loc'];
                 <tr> 
                     <th>Property Name</th> 
                     <th>Property Area</th>
-                    <th>Property Cost</th>
+                    <th>Selling Price</th>
                     <th>Availability</th>
                     <th>Photo</th>
                 </tr>
@@ -48,8 +47,6 @@ $id=$_SESSION['loc'];
             </tbody>
             <?php }?>
         </table>
-        <?php } else{
-            echo "<h1>There's No avaiable Property Right Now";
-        }
+        <?php }
                 
         ?>

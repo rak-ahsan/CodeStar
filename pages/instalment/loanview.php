@@ -50,6 +50,7 @@
                 <td><?php echo $a*$row['ins_month']?></td>
 
                 <td value="<?=$row['land_agent_id']?>"><?=$row['land_agent_name']?></td>
+
                 <td>
                      <?php if($row['from_pic']!=''){ 
                     echo "<img height='50' src='../../dist/images/land/$row[from_pic]'>";
@@ -58,7 +59,9 @@
                    }
                    ?>
                 </td>
+                
                 <td><?=$row['apply_date']?></td>
+                <?php if($_SESSION['id']==$row['land_agent_id']){?>
                 <td>
                   <a class='btn nav-link' href='updatedata.php?id=<?=$row['instal_id']?>'>
                   <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
@@ -68,9 +71,20 @@
                   <a class='btn nav-link' href='Delete.php?id=<?=$row['instal_id']?>'>
                   <i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a>
                 </td>
+                <?php } ?>
+                <?php if($_SESSION['role']==1){?>
+                <td>
+                  <a class='btn nav-link' href='updatedata.php?id=<?=$row['instal_id']?>'>
+                  <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
+                   </td>
+                
+                <td>
+                  <a class='btn nav-link' href='Delete.php?id=<?=$row['instal_id']?>'>
+                  <i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a>
+                </td>
+                <?php } ?>
+                
             <tr>
-            
-            
             </tbody>
             <?php }?>
         </table>

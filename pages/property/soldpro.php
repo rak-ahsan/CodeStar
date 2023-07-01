@@ -10,7 +10,7 @@ $id=$_SESSION['loc'];
     FROM property p
     NATURAL JOIN land_status ls
     JOIN area ar ON p.property_location = ar.area_id
-    WHERE p.property_location = $id and p.ls_id=1;
+    WHERE p.ls_id = 3 AND ar.area_id = $id
     ";
 
     $result = $conn->query($sql);
@@ -22,7 +22,8 @@ $id=$_SESSION['loc'];
                 <tr> 
                     <th>Property Name</th> 
                     <th>Property Area</th>
-                    <th>Property Cost</th>
+                    <th>Selling Price</th>
+                    <th>Your Profit</th>
                     <th>Availability</th>
                     <th>Photo</th>
                 </tr>
@@ -33,6 +34,7 @@ $id=$_SESSION['loc'];
                 <td><?=$row['property_name']?></td>
                 <td><?=$row['area_name']?></td>
                 <td><?=$row['property_cost']?></td>
+                <td><?=$row['property_cost'] * 0.1 ?></td>
                 <td><?=$row['is_name']?></td>
                 <td>
                      <?php if($row['land_img']!=''){ 
@@ -48,8 +50,6 @@ $id=$_SESSION['loc'];
             </tbody>
             <?php }?>
         </table>
-        <?php } else{
-            echo "<h1>There's No avaiable Property Right Now";
-        }
+        <?php }
                 
         ?>

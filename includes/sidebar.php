@@ -48,6 +48,19 @@
         <i class="fa-solid fa-arrows-down-to-people fa-xl me-3" style="color: #ffffff;"></i>
             Total Agent
       </a>
+      <?php if($_SESSION['role']==2) {?>
+      <a class = "nav-link p-3 aborder" href="../property/soldpro.php">
+      <i class="fa-solid fa-warehouse fa-xl me-3" style="color: #ffffff;"></i>
+                Sold Property
+      </a>
+      <?php } ?>
+
+      <?php if($_SESSION['role']==1) {?>
+      <a class = "nav-link p-3 aborder" href="../property/soldadm.php">
+      <i class="fa-solid fa-warehouse fa-xl me-3" style="color: #ffffff;"></i>
+                Sold Property
+      </a>
+      <?php } ?>
       <a class = "nav-link p-3 aborder" href="../../logout.php">
       <i class="fa-solid fa-right-from-bracket fa-xl me-3" style="color: #ffffff;"></i>
       

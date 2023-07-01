@@ -6,7 +6,22 @@
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <link rel="stylesheet" href="../../dist/css/cus.css">
-<div class="col-md-10 ">
+<style>
+    .scrl{
+        overflow:auto;
+        height:100vh;
+        overflow-y: scroll;
+    }
+    .scrl::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrl {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    }
+</style>
+<div class="col-md-10 scrl">
         <div class="container bg-light d-flex rak">
             <div class="col-md-6">
             <i class="fa-solid fa-bounce fa-xl m-3" style="color: #2471A3 ;">
@@ -217,6 +232,52 @@
                             <?php } ?>
                         </div>
                         </div>
+<div class="container d-flex bg-light rak">
+    <div class="col-md-6 vh-80 p-3 table-responsive">
+            <?php 
+                $sql = "SELECT p.property_name, p.property_location, p.land_img, p.property_cost, p.ls_id, ls.is_name, ar.area_name
+                FROM property p
+                NATURAL JOIN land_status ls
+                JOIN area ar ON p.property_location = ar.area_id
+                JOIN land_agent la ON la.land_agent_location = p.property_location
+                WHERE p.ls_id = 3;                
+                ";
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                ?>
+                    <table class='table table-light align-middle text-center table-bordered'>
+                        <thead>
+                            <tr> <h3 class="text-center">Solded Property</h3>
+                                <th>Property Name</th> 
+                                <th>Property Area</th>
+                                <th>Selling Price</th>
+                                <th>Availability</th>
+                            </tr>
+                        </thead>
+                <?php while ($row = $result->fetch_assoc()) {?>
+                        <tbody>
+                        <tr>
+                            <td><?=$row['property_name']?></td>
+                            <td><?=$row['area_name']?></td>
+                            <td><?=$row['property_cost']?></td>
+                            <td><?=$row['is_name']?></td>
+                        <tr>
+                        </tbody>
+                        <?php }?>
+                    </table>
+                    <?php }
+                            
+                    ?>
+            </div>
+            <div class="col-md-6 d-flex mt-3  bg-light rak">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            </div>
+            </div>
+            
+        </div>
             </div>
         </div>
     

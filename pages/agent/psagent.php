@@ -31,7 +31,18 @@
 
         </h1>
     </div>
+
     <div class="col-md-6">
+    <?php 
+        $sql = "SELECT p.property_name, p.property_location,p.land_img, p.property_cost, p.ls_id, ls.is_name, ar.area_name
+        FROM property p
+        NATURAL JOIN land_status ls
+        JOIN area ar ON p.property_location = ar.area_id
+        WHERE p.ls_id = 3
+        ";
+        $result = $conn->query($sql);
+        $rows = $result->fetch_assoc()
+    ?>
         <div class="card" style="width: 18rem;">
         <?php 
                                 if($row['agent_img']!=''){ 
@@ -46,6 +57,7 @@
                 Name : <?= $row['land_agent_name']?><br>
                 Contact : <?= $row['land_agent_contact']?><br>
                 Agent Area : <?= $row['area_name']?>
+                
         </p>
         </div>
         
