@@ -12,7 +12,7 @@
       <label for="name" class="form-label mt-3">Customar Name</label>
       <input type="text" class="form-control mb-1 in" id="name" name="bname">
     </div>
-    
+    <?php if($_SESSION['role']==1){?>
     <div>
     <label for="larea" class="form-label"> Area</label>
       <select class="form-select form-select-sm in mb-1" name="booking_area" aria-label=".form-select-sm example">
@@ -28,6 +28,25 @@
           <?php }?>
       </select>
     </div>
+<?php } ?>
+<?php if($_SESSION['role']==2){?>
+    <div>
+    <label for="larea" class="form-label"> Area</label>
+      <select class="form-select form-select-sm in mb-1" name="booking_area" aria-label=".form-select-sm example">
+      <option selected>Select Area</option>
+        <?php
+        $loc = $_SESSION['loc'];
+         $sql = "SELECT * FROM area"; 
+         $result = $conn->query($sql);
+         while ($rows = $result->fetch_assoc()) {
+        ?>
+          <option value= "<?php echo $rows['area_id'];?>" <?php if($loc==$rows['area_id']){echo 'selected';};?>> 
+          <?php echo$rows['area_name'];?>
+        </option>
+          <?php }?>
+      </select>
+    </div>
+    <?php } ?>
 
     <div>
       <label for="bkarea" class="form-label">Address</label>
@@ -43,7 +62,7 @@
       <label for="bcost" class="form-label">Contact</label>
       <input type="text" class="form-control mb-1 in" id="bcost" name="Customar_con">
     </div>
-
+    <?php if($_SESSION['role']==1){?>
     <div>
     <label for="larea" class="form-label">Select An Apratment</label>
     <select class="form-select form-select-sm in mb-1" name="property_id" aria-label=".form-select-sm example">
@@ -57,7 +76,24 @@
           <?php }?>
       </select>
     </div>
-
+    <?php }?>
+    <?php if($_SESSION['role']==2){?>
+        <div>
+        <label for="larea" class="form-label">Select An Apratment</label>
+        <select class="form-select form-select-sm in mb-1" name="property_id" aria-label=".form-select-sm example">
+          <option selected>Open this select menu</option>
+            <?php
+            $loc = $_SESSION['loc'];
+            $sql = "SELECT * FROM property
+            where $loc = property.property_location"; 
+            $result = $conn->query($sql);
+            while ($row = $result->fetch_assoc()) {
+            ?>
+              <option value= "<?php echo$row['property_id'];?>"><?php echo$row['property_name'];?></option>
+              <?php }?>
+          </select>
+        </div>
+    <?php } ?>
     <div>
     <label for="larea" class="form-label">Booking Type</label>
     <select class="form-select form-select-sm in mb-1" name="booking" aria-label=".form-select-sm example">

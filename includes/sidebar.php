@@ -44,10 +44,12 @@
       <?php } ?>
       <a class = "nav-link p-3 aborder" href="../project/runningview.php">
       <i class="fa-solid fa-person-digging fa-xl me-3" style="color: #ffffff;"></i>Ongoing Project</a>
-      <a class = "nav-link p-3 aborder" href="#">
+      <?php if($_SESSION['role']==1) {?>
+      <a class = "nav-link p-3 aborder" href="../agent/totalagent.php">
         <i class="fa-solid fa-arrows-down-to-people fa-xl me-3" style="color: #ffffff;"></i>
             Total Agent
       </a>
+      <?php } ?>
       <?php if($_SESSION['role']==2) {?>
       <a class = "nav-link p-3 aborder" href="../property/soldpro.php">
       <i class="fa-solid fa-warehouse fa-xl me-3" style="color: #ffffff;"></i>

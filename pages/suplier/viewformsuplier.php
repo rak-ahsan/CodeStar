@@ -19,7 +19,7 @@
                     <th>suplier Name</th> 
                     <th>suplier Contatc</th>
                     <th>suplier Email</th>
-                    <th>Total Amount </th>
+                    <th>Shop Name </th>
                     <th>Total Paid</th>
                     <th>Total Due</th>
                     <th>metarial</th>
@@ -34,9 +34,9 @@
                 <td><?=$row['sup_name']?></td>
                 <td><?=$row['sup_contact_no']?></td>
                 <td><?=$row['sup_email']?></td>
-                <td><?php echo $a= $row['tamount'] + $row['metarial_price']?></td>
-                <td><?=$row['tpaid']?></td>
-                <td><?php echo ($a-$row['tpaid'])?></td>
+                <td><?= $row['tamount']?></td>
+                <td><?= $row['tpaids']?></td>
+                <td><?php echo ($row['metarial_price'] - $row['tpaids'])?></td>
                 <td><?=$row['metarial_name']?></td>
                 <td><?=$row['submission_date']?></td>
                 <!-- <td>
