@@ -6,9 +6,15 @@
 <div class="col-md-10 table-responsive p-3">
 
 <?php 
-    $sql = "SELECT * FROM running_pj natural join project_status
-    JOIN area ON running_pj.project_location = area.area_id
-    "; 
+    $sql = "SELECT *, DATEDIFF(CURDATE(), project.date_column) AS days_gone,
+    PERIOD_DIFF(EXTRACT(YEAR_MONTH FROM CURDATE()), EXTRACT(YEAR_MONTH FROM project.date_column)) AS months_gone,
+    FLOOR(DATEDIFF(CURDATE(), project.date_column) / 365) AS years_gone
+    FROM project
+    JOIN project_status ON project.ps_id = project_status.ps_id
+    JOIN p_contactor ON project.pc_id = p_contactor.land_agent_id
+    JOIN area ON project.project_location = area.area_id
+    WHERE project_status.ps_id = 1";
+
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -19,7 +25,9 @@
                 <th>Location</th>
                 <th>Project Buget</th>
                 <th>Already Spend</th>
+                <th>Contactor</th>
                 <th>Status</th>
+                <th>Days Gone</th>
             </tr>
             </thead>
             "; 
@@ -30,7 +38,9 @@
                 <td>$row[area_name]</td>
                 <td>$row[project_price]</td>
                 <td>$row[spened]</td>
+                <td>$row[land_agent_name]</td>
                 <td>$row[p_status]</td>
+                <td>$row[days_gone] Days <br>$row[months_gone] Months<br> $row[years_gone] Years</td>
             <tr>
             
             

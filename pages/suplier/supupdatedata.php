@@ -1,6 +1,7 @@
 <?php include('../../includes/conf.php');
   get_header();
   get_side();
+  agent();
 
     $userid = $_GET['id'];
     $sql = "SELECT * FROM suplier where sup_id = $userid"; 

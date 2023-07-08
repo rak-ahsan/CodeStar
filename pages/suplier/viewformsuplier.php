@@ -1,10 +1,14 @@
 <?php include('../../includes/conf.php');
   get_header();
   get_side();
+  agent();
 ?>
 <div class="col-md-10 table-responsive p-3">
 <?php 
-    $sql = "SELECT * FROM suplier"; 
+    $sql = "SELECT * FROM suplier 
+    natural join metarial"; 
+
+    
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -15,9 +19,10 @@
                     <th>suplier Name</th> 
                     <th>suplier Contatc</th>
                     <th>suplier Email</th>
-                    <th>Total Amount </th>
+                    <th>Shop Name </th>
                     <th>Total Paid</th>
                     <th>Total Due</th>
+                    <th>metarial</th>
                     <th>Date</th>
                     <!-- <th>Photo</th> -->
                     <th colspan='2'>Action</th>
@@ -29,9 +34,10 @@
                 <td><?=$row['sup_name']?></td>
                 <td><?=$row['sup_contact_no']?></td>
                 <td><?=$row['sup_email']?></td>
-                <td><?=$row['tamount']?></td>
-                <td><?=$row['tpaid']?></td>
-                <td><?php echo ($row['tamount']-$row['tpaid'])?></td>
+                <td><?= $row['tamount']?></td>
+                <td><?= $row['tpaids']?></td>
+                <td><?php echo ($row['metarial_price'] - $row['tpaids'])?></td>
+                <td><?=$row['metarial_name']?></td>
                 <td><?=$row['submission_date']?></td>
                 <!-- <td>
                      <?php if($row['land_img']!=''){ 

@@ -6,7 +6,8 @@
 <?php 
     $sql = "SELECT * FROM booking natural JOIN booking_type 
     JOIN property ON property.property_id = booking.property_id
-    JOIN payment ON payment.pay_id = booking.payment ORDER BY booking.bking_id = 'DESC'
+    JOIN payment ON payment.pay_id = booking.payment 
+    ORDER BY booking.bking_id DESC
     "; 
     $result = $conn->query($sql);
 
@@ -33,15 +34,32 @@
                 <td><?=$row['property_name']?></td>
                 <td><?=$row['btype']?></td>
                 <td><?=$row['payname']?></td>
-                <td>
-                  <a class='btn nav-link' href='updatedata.php?id=<?=$row['bking_id']?>'>
-                  <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
-                   </td>
-                
-                <td>
-                  <a class='btn nav-link' href='Delete.php?id=<?=$row['bking_id']?>'>
-                  <i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a>
-                </td>
+
+                <?php if($_SESSION['loc'] == $row['booking_area']) { ?>
+                    <td>
+                    <a class='btn nav-link' href='updatedata.php?id=<?=$row['bking_id']?>'>
+                    <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
+                    </td>
+                    
+                    <td>
+                    <a class='btn nav-link' href='Delete.php?id=<?=$row['bking_id']?>'>
+                    <i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a>
+                    </td>
+
+                 <?php }?>
+
+                 <?php if($_SESSION['role'] == 1) { ?>
+                    <td>
+                    <a class='btn nav-link' href='updatedata.php?id=<?=$row['bking_id']?>'>
+                    <i class='fa-regular fa-pen-to-square fa-xl'></i></a>
+                    </td>
+                    
+                    <td>
+                    <a class='btn nav-link' href='Delete.php?id=<?=$row['bking_id']?>'>
+                    <i class='fa-solid fa-trash fa-xl' style='color: #ff0000;'></i></a>
+                    </td>
+
+                 <?php }?>
             <tr>
             
             

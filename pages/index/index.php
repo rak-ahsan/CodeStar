@@ -1,12 +1,33 @@
 <?php include('../../includes/conf.php');
   get_header();
   get_side();
+  agent();
 ?>
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <link rel="stylesheet" href="../../dist/css/cus.css">
-<div class="col-md-10 ">
+<style>
+    .scrl{
+        overflow:auto;
+        height:100vh;
+        overflow-y: scroll;
+    }
+    .scrl::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrl {
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    }
+</style>
+<div class="col-md-10 scrl">
         <div class="container bg-light d-flex rak">
             <div class="col-md-6">
+            <i class="fa-solid fa-bounce fa-xl m-3" style="color: #2471A3 ;">
+            <?php echo "welcome ".$_SESSION['username']?>
+                    </i>
+                
                 <div class="p-3 d-flex flex-column">
                     <span>
                     <i class="fa-solid fa-chart-pie fa-bounce fa-2xl m-3" style="color: #ff8000;">
@@ -48,7 +69,7 @@
                 natural JOIN booking_type 
                 JOIN property ON property.property_id = booking.property_id
                 JOIN payment ON payment.pay_id = booking.payment 
-                -- ORDER BY date DESC
+                ORDER BY date DESC
                 limit 5
                 
                 "; 
@@ -59,10 +80,10 @@
                 ?>
                 <table class="table text-center">
                     <thead>
-                        <h6>Booking List:</h6>
-                        <th>Name</th>
+                        <h3 class="text-center">Booking Lists</h3>
+                        <th>Customar Name</th>
                         <th>Property Name</th>
-                        <th>Date</th>
+                        <th>Booking Date</th>
                         <th>Payment</th>
                     </thead>
                     <tbody>
@@ -135,55 +156,128 @@
             
         </div> 
         <div class="container bg-light">
-        <div class="row p-3">
-        <div class="col-md-6 vh-80 table-responsive">
-                <table class="table ">
-                    <thead>
-                        <h6></h6>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row p-3">
+            <div class="col-md-6 vh-50">
+                
+                <script type="text/javascript">
+                    google.charts.load("current", {packages:["corechart"]});
+                    google.charts.setOnLoadCallback(drawChart);
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                        ['Task', 'Hours per Day'],
+                        ['Running',     <?php echo "55"?>],
+                        ['Onhold',      <?php echo "66"?>],
+                        ['Compelete',  2],
+                        ]);
+
+                        var options = {
+                        title: 'Ongoing Project Status',
+                        is3D: true,
+                        };
+
+                        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                        chart.draw(data, options);
+                    }
+                </script>
+                <h3 class="text-center">Ongoing Project Status</h3>
+                    <div id="piechart_3d" class="p-3 vh-25" ></div>
             </div>
-            <div class="col-md-6  d-flex align-items-center ">
-                <div class="container" id="chartContainer"></div>
-               
+                <div class="col-md-6 vh-80 p-3 table-responsive">
+                        <?php 
+                            $sql = "SELECT *, DATEDIFF(CURDATE(), project.date_column) AS days_gone,
+                            PERIOD_DIFF(EXTRACT(YEAR_MONTH FROM CURDATE()), EXTRACT(YEAR_MONTH FROM project.date_column)) AS months_gone,
+                            FLOOR(DATEDIFF(CURDATE(), project.date_column) / 365) AS years_gone
+                            FROM project
+                            JOIN project_status ON project.ps_id = project_status.ps_id
+                            JOIN p_contactor ON project.pc_id = p_contactor.land_agent_id
+                            JOIN area ON project.project_location = area.area_id
+                            WHERE project_status.ps_id = 1
+                            limit 5
+                            ";
+
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                        ?>
+                            <table class='table table-light align-middle text-center table-bordered'>
+                                <thead>
+                                <h3 class="text-center">Ongoing Projects</h3>
+                                    <tr> 
+                                        <th> Name</th> 
+                                        <!-- <th> Location</th>
+                                        <th> Buget</th> -->
+                                        <th> Spend</th>
+                                        <th>Contactor</th>
+                                        <th>Status</th>
+                                        <th>Running Time</th>
+                                    </tr>
+                                </thead>
+                        <?php while ($row = $result->fetch_assoc()) {?>
+                                <tbody>
+                                <tr>
+                                    <td><?=$row['project_name']?></td>
+                                    <!-- <td><?=$row['area_name']?></td>
+                                    <td><?=$row['project_price']?></td> -->
+                                    <td><?=$row['spened']?></td>
+                                    <td><?=$row['land_agent_name']?></td>
+                                    <td><?=$row['p_status']?></td>
+                                    <td><?=$row['days_gone']?> Days /
+                                        <?=$row['months_gone']?> Months/
+                                        <?=$row['years_gone']?> Years 
+                                    </td>
+                                <tr>        
+                                </tbody>
+                                <?php }?>
+                            </table>
+                            <?php } ?>
+                        </div>
+                        </div>
+<div class="container d-flex bg-light rak">
+    <div class="col-md-6 vh-80 p-3 table-responsive">
+            <?php 
+                $sql = "SELECT p.property_name, p.property_location, p.land_img, p.property_cost, p.ls_id, ls.is_name, ar.area_name
+                FROM property p
+                NATURAL JOIN land_status ls
+                JOIN area ar ON p.property_location = ar.area_id
+                JOIN land_agent la ON la.land_agent_location = p.property_location
+                WHERE p.ls_id = 3;                
+                ";
+
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                ?>
+                    <table class='table table-light align-middle text-center table-bordered'>
+                        <thead>
+                            <tr> <h3 class="text-center">Solded Property</h3>
+                                <th>Property Name</th> 
+                                <th>Property Area</th>
+                                <th>Selling Price</th>
+                                <th>Availability</th>
+                            </tr>
+                        </thead>
+                <?php while ($row = $result->fetch_assoc()) {?>
+                        <tbody>
+                        <tr>
+                            <td><?=$row['property_name']?></td>
+                            <td><?=$row['area_name']?></td>
+                            <td><?=$row['property_cost']?></td>
+                            <td><?=$row['is_name']?></td>
+                        <tr>
+                        </tbody>
+                        <?php }?>
+                    </table>
+                    <?php }
+                            
+                    ?>
+            </div>
+            <div class="col-md-6 d-flex mt-3  bg-light rak">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            </div>
+            </div>
+            
+        </div>
             </div>
         </div>
-    </div>
-    </div>
     

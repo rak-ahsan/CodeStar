@@ -28,46 +28,54 @@
             <li><a class="dropdown-item" href="../land/landview.php">View All Land</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Suplier
-          </a>
-          <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="../suplier/formsuplier.php">Add A New Suplier</a></li>
-            <li><a class="dropdown-item" href="../suplier/viewformsuplier.php">Suplier Details</a></li>
-          </ul>
-        </li>
+        <?php if($_SESSION['role']==1){?>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Suplier
+            </a>
+            <ul class="dropdown-menu navli">
+              <li><a class="dropdown-item" href="../suplier/formsuplier.php">Add A New Suplier</a></li>
+              <li><a class="dropdown-item" href="../suplier/viewformsuplier.php">Suplier Details</a></li>
+            </ul>
+          </li>
+        <?php }?>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Material
-          </a>
-          <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="../metarial/formmetarial.php">Add Required Metarial</a></li>
-            <li><a class="dropdown-item" href="../metarial/mview.php">View Metarial</a></li>
-          </ul>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Developer
-          </a>
-          <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="../developer/devadd.php">New Developer</a></li>
-            <li><a class="dropdown-item" href="../developer/dev.php">Developer Details</a></li>
-            <li><a class="dropdown-item" href="../developer/view.php">Developer Base Aprtment</a></li>
-          </ul>
-        </li>
+        <?php if($_SESSION['role']==1){?>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Material
+            </a>
+            <ul class="dropdown-menu navli">
+              <li><a class="dropdown-item" href="../metarial/formmetarial.php">Add Required Metarial</a></li>
+              <li><a class="dropdown-item" href="../metarial/mview.php">View Metarial</a></li>
+            </ul>
+          </li>
+        <?php }?>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Project
-          </a>
-          <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="../project/formproject.php">New Project</a></li>
-            <li><a class="dropdown-item" href="../project/pjview.php">Running Project</a></li>
-          </ul>
-        </li>
+        <?php if($_SESSION['role']==1){?>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Developer
+            </a>
+            <ul class="dropdown-menu navli">
+              <li><a class="dropdown-item" href="../developer/devadd.php">New Developer</a></li>
+              <li><a class="dropdown-item" href="../developer/dev.php">Developer Details</a></li>
+              <li><a class="dropdown-item" href="../developer/view.php">Developer Base Aprtment</a></li>
+            </ul>
+          </li>
+        <?php }?>
+
+        <?php if($_SESSION['role']==1){?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Project
+              </a>
+              <ul class="dropdown-menu navli">
+                <li><a class="dropdown-item" href="../project/formproject.php">New Project</a></li>
+                <li><a class="dropdown-item" href="../project/pjview.php">Running Project</a></li>
+              </ul>
+            </li>
+            <?php }?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Apartment
@@ -88,15 +96,17 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Agent
-          </a>
-          <ul class="dropdown-menu navli">
-            <li><a class="dropdown-item" href="../agent/agentadd.php">Add An Agent</a></li>
-            <li><a class="dropdown-item" href="../agent/agent.php">View Avaiable Agent</a></li>
-          </ul>
-        </li>
+        <?php if($_SESSION['role']==1){?>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Agent
+            </a>
+            <ul class="dropdown-menu navli">
+              <li><a class="dropdown-item" href="../agent/agentadd.php">Add An Agent</a></li>
+              <li><a class="dropdown-item" href="../agent/agent.php">View Avaiable Agent</a></li>
+            </ul>
+          </li>
+        <?php }?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Booking

@@ -1,4 +1,7 @@
-<?php
+<?php session_start();
+if(!isset($_SESSION['login'])){
+    header("location:../../index.php");
+}
 include("db.php");
 
 function get_header(){
@@ -13,5 +16,10 @@ function get_footer(){
     include('footer.php');
 }
 
+function agent(){
+    if(isset($_SESSION['role']) && $_SESSION['role']!=1 ){
+        header("location:../agent/agent.php");
+    }
+}
 
 ?>
